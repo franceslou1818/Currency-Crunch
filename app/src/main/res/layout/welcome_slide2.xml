@@ -14,7 +14,7 @@
         <ImageView
             android:layout_width="@dimen/welcome_img_width_height"
             android:layout_height="@dimen/welcome_img_width_height"
-            android:src="@drawable/dollar_coin_24dp" />
+            android:src="@drawable/globe_icon24dp" />
 
         <TextView
             android:layout_width="wrap_content"
