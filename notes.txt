@@ -1,0 +1,113 @@
+UK | EN | GBP
+Ireland | EN, GA | EUR
+US | EN | USD
+Spain | ES | EUR
+France | FR | EUR
+Belgium | FR, NL, DE | EUR
+Philippines | TL | PHP
+
+
+**********************************************************
+EUR Euro
+AUD Australian Dollar
+BGN Bulgarian lev
+BRL Brazilian real
+CAD Canadian dollar
+CHF Swiss franc
+CNY Chinese Yuan Renminbi
+CZK Czech koruna Czech Republic
+DKK Danish krone Denmark
+GBP Pound sterling United Kingdom
+HKD Hong Kong dollar
+HUF Hungarian forint Hungary
+IDR Indonesian rupiah
+ILS Israeli new shekel
+INR Indian rupee
+ISK Icelandic króna
+JPY Japanese yen
+KRW South Korean won
+MXN Mexican peso
+MYR Malaysian ringgit
+NOK Norwegian krone
+NZD New Zealand dollar
+PHP Philippine peso
+PLN Polish złoty
+RON Romanian leu
+RUB Russian ruble
+SEK Swedish krona
+SGD Singapore dollar
+THB Thai baht
+TRY Turkish lira
+USD United States Dollar
+ZAR South African rand
+**********************************************************
+Afrikaans	af
+Arabic	ar
+Bulgarian	bg
+Chinese (Simplified)	zh-CN (BCP-47)
+Croatian	hr
+Czech	cs
+Danish	da
+Dutch	nl
+Finnish	fi
+French	fr
+German	de
+Greek	el
+Hindi	hi
+Hungarian	hu
+Icelandic	is
+Indonesian	id
+Irish	ga
+Italian	it
+Japanese	ja
+Korean	ko
+Lithuanian	lt
+Luxembourgish	lb
+Polish	pl
+Portuguese (Portugal, Brazil)	pt
+Romanian	ro
+Russian	ru
+Slovenian	sl
+Spanish	es
+Swedish	sv
+Tagalog (Filipino)	tl
+Thai	th
+**********************************************************
+{"base":"EUR",
+"date":"2018-02-16",
+"rates":{
+"AUD":1.5695,
+"BGN":1.9558,
+"BRL":4.0314,
+"CAD":1.5587,
+"CHF":1.1521,
+"CNY":7.9077,
+"CZK":25.34,
+"DKK":7.4481,
+"GBP":0.88803,
+"HKD":9.7479,
+"HRK":7.438,
+"HUF":311.28,
+"IDR":16848.0,
+"ILS":4.4211,
+"INR":80.044,
+"ISK":125.2,
+"JPY":132.34,
+"KRW":1327.3,
+"MXN":23.063,
+"MYR":4.8541,
+"NOK":9.681,
+"NZD":1.6853,
+"PHP":65.121,
+"PLN":4.1597,
+"RON":4.6625,
+"RUB":70.288,
+"SEK":9.914,
+"SGD":1.6336,
+"THB":39.0,
+"TRY":4.6784,
+"USD":1.2464,
+"ZAR":14.533}
+}
+
+

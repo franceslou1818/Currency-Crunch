@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CurrencyCrunch</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="startup">Startup Pages</string>
+    <string name="apiKey">"AIzaSyDymF-_GTUelaiSJYO1ET6PZZrDbX9QqP8"</string>
+
+    <string-array name="countries">
+        <item>UK</item>
+        <item>Ireland</item>
+        <item>US</item>
+        <item>Spain</item>
+        <item>Belgium</item>
+        <item>Philippines</item>
+    </string-array>
+
+</resources>

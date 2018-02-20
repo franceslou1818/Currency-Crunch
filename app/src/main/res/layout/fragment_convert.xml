@@ -1,0 +1,58 @@
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+    <!--android:background="#c6c6c6"-->
+
+    <TextView
+        android:id="@+id/convertabletext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Hi, Convert Me!"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/convertedittext"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/convertabletext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:background="@android:color/white"
+        android:hint="GBP - PHP"
+        android:padding="5dp"
+        android:inputType="numberDecimal" />
+
+    <Button
+        android:id="@+id/convertbutton"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/convertedittext"
+        android:layout_marginTop="19dp"
+        android:text="CONVERT"
+        android:textStyle="bold" />
+
+</RelativeLayout>
+
+
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.example.android.currencycrunch.ConvertFragment">-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="convert fragment" />-->
+
+<!--</FrameLayout>-->
+
