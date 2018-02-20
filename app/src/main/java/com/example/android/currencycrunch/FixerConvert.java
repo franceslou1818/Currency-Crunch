@@ -22,6 +22,8 @@ import java.util.Scanner;
 
 public class FixerConvert {
 
+
+
     private static Hashtable<String,Double> allConversions = new Hashtable<String,Double>();
 
     private static String convertApiUrl = "https://api.fixer.io/latest";

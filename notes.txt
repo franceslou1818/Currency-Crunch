@@ -5,6 +5,8 @@ Spain | ES | EUR
 France | FR | EUR
 Belgium | FR, NL, DE | EUR
 Philippines | TL | PHP
+Turkey |
+
 
 
 **********************************************************
@@ -72,6 +74,7 @@ Spanish	es
 Swedish	sv
 Tagalog (Filipino)	tl
 Thai	th
+Turkish	tr
 **********************************************************
 {"base":"EUR",
 "date":"2018-02-16",
