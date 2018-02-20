@@ -7,13 +7,36 @@
     <string name="startup">Startup Pages</string>
     <string name="apiKey">"AIzaSyDymF-_GTUelaiSJYO1ET6PZZrDbX9QqP8"</string>
 
-    <string-array name="countries">
-        <item>UK</item>
-        <item>Ireland</item>
-        <item>US</item>
-        <item>Spain</item>
-        <item>Belgium</item>
-        <item>Philippines</item>
+    <!--country:language:currency-->
+    <string-array name="countryLangCurr">
+        <item>UK:en:gbp</item>
+        <item>Ireland:en ga:eur</item>
+        <item>US:en:usd</item>
+        <item>Spain:es:eur</item>
+        <item>France:fr:eur</item>
+        <item>Belgium:fr nl de:eur</item>
+        <item>Philippines:tl:php</item>
+        <item>Turkey:tr:eur try</item>
     </string-array>
+
+    <string-array name="languages">
+        <item>en:English</item>
+        <item>ga:Irish</item>
+        <item>es:Spanish</item>
+        <item>fr:French</item>
+        <item>nl:Dutch</item>
+        <item>de:German</item>
+        <item>tl:Tagalog</item>
+        <item>tr:Turkish</item>
+    </string-array>
+
+    <string-array name="currencies">
+        <item>eur:Euro</item>
+        <item>gbp:Pound Sterling</item>
+        <item>usd:United States Dollar</item>
+        <item>php:Philippine Peso</item>
+        <item>try:Turkish Lira</item>
+    </string-array>
+
 
 </resources>

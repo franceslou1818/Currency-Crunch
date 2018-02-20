@@ -54,10 +54,10 @@
         android:layout_height="75dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:background="@color/colorPrimary"
-        android:popupBackground="@color/colorAccent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerFromCountry" />
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:popupBackground="@color/colorAccent"-->
 
     <Spinner
         android:id="@+id/spinnerToLanguage"
@@ -65,40 +65,37 @@
         android:layout_height="75dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="32dp"
-        android:background="@color/colorPrimary"
-        android:popupBackground="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerToCountry" />
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:popupBackground="@color/colorAccent"-->
 
-    <TextView
-        android:id="@+id/textViewFromCurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+    <Spinner
+        android:id="@+id/spinnerFromCurrency"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerFromLanguage" />
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:popupBackground="@color/colorAccent"-->
 
-    <TextView
-        android:id="@+id/textViewToCurrency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+    <Spinner
+        android:id="@+id/spinnerToCurrency"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerToLanguage" />
+        <!--android:background="@color/colorPrimary"-->
+        <!--android:popupBackground="@color/colorAccent"-->
 
-
-    <!--<Spinner-->
-        <!--android:id="@+id/dynamic_spinner"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content" />-->
 
 
 </android.support.constraint.ConstraintLayout>
