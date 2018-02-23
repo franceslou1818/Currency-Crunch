@@ -20,22 +20,22 @@
     </string-array>
 
     <string-array name="languages">
-        <item>en:English</item>
-        <item>ga:Irish</item>
-        <item>es:Spanish</item>
-        <item>fr:French</item>
-        <item>nl:Dutch</item>
-        <item>de:German</item>
-        <item>tl:Tagalog</item>
-        <item>tr:Turkish</item>
+        <item>en:English(en)</item>
+        <item>ga:Irish(ga)</item>
+        <item>es:Spanish(es)</item>
+        <item>fr:French(fr)</item>
+        <item>nl:Dutch(nl)</item>
+        <item>de:German(de)</item>
+        <item>tl:Tagalog(tl)</item>
+        <item>tr:Turkish(tr)</item>
     </string-array>
 
     <string-array name="currencies">
-        <item>eur:Euro</item>
-        <item>gbp:Pound Sterling</item>
-        <item>usd:United States Dollar</item>
-        <item>php:Philippine Peso</item>
-        <item>try:Turkish Lira</item>
+        <item>eur:Euro(eur)</item>
+        <item>gbp:Pound Sterling(gbp)</item>
+        <item>usd:United States Dollar(usd)</item>
+        <item>php:Philippine Peso(php)</item>
+        <item>try:Turkish Lira(try)</item>
     </string-array>
 
 

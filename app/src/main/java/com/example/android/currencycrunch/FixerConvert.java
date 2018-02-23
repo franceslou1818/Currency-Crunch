@@ -31,6 +31,9 @@ public class FixerConvert {
 //    public  FixerConvert() {
 //        populateallConversions();
 //    }
+        public  FixerConvert() {
+
+    }
 
     public void populateallConversions() {
         try {
@@ -76,16 +79,25 @@ public class FixerConvert {
 
     public Double convert(String fromCurr, String toCurr, double fromCurrAmount) {
 
-        double toCurrAmount =0.0; // to return
+        String fromCurrUpper = "";
+        fromCurrUpper = fromCurr.toUpperCase();
+//        fromCurrUpper = fromCurr;
+        String toCurrUpper = "";
+        toCurrUpper = toCurr.toUpperCase();
+//        toCurrUpper = toCurr;
+
+            double toCurrAmount =0.0; // to return
 
 //        double fromCurrAmt = allConversions.get(fromCurr);
 //        double toCurrAmt = allConversions.get(toCurr);
-//        System.out.println("fromCurr: " + fromCurrAmt );
-//        System.out.println("fromCurr: " + toCurrAmt );
-//        System.out.println("conversion: " + fromCurrAmount);
+//        System.out.println("********fromCurrAmt: " + fromCurrAmt );
+//        System.out.println("******toCurrAmt: " + toCurrAmt );
+//        System.out.println("*******conversion: " + fromCurrAmount);
+
+        System.out.println("*************Convert: " + fromCurrUpper + " " + toCurrUpper + " " + fromCurrAmount);
 
         try {
-            String urlBaseSpecified = convertApiUrl+"?base="+fromCurr+"&symbols="+toCurr;
+            String urlBaseSpecified = convertApiUrl+"?base="+fromCurrUpper+"&symbols="+toCurrUpper;
             HttpURLConnection conn = (HttpURLConnection) (new URL(urlBaseSpecified)).openConnection();
             InputStream stream;
             if (conn.getResponseCode() == 200) { //success
@@ -110,7 +122,7 @@ public class FixerConvert {
                     continue;
                 if (key.equals("base"))
                     continue;
-                if (key.equals(toCurr))
+                if (key.equals(toCurrUpper))
                     toCurrAmount = fromCurrAmount * Double.parseDouble(lineArr[1]);
 
                 return toCurrAmount;
@@ -126,12 +138,13 @@ public class FixerConvert {
     }
 
 
-    public static void main(String[] args) {
-
-        FixerConvert converter = new FixerConvert();
-
-        System.out.println("allConversions: " + allConversions);
-        System.out.println("convert: " + converter.convert("GBP","PHP", 100));
-
-    }
+//    public static void main(String[] args) {
+//
+//        FixerConvert converter = new FixerConvert();
+//
+//        System.out.println("allConversionss: " + allConversions);
+//        System.out.println("convertLower: " + converter.convert("gbp","eur", 100));
+//        System.out.println("convertUpper: " + converter.convert("GBP","EUR", 100));
+//
+//    }
 }

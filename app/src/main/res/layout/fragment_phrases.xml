@@ -28,7 +28,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:background="@android:color/white"
-        android:hint="English - Tagalog"
+        android:hint="Enter Phrase to Translate"
         android:padding="5dp" />
 
     <Button

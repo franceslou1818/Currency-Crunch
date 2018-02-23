@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 public class PhrasesFragment extends Fragment {
 
-//    GoogleTranslate translator = new GoogleTranslate(getString(R.string.apiKey));
+    HomeFragment homeFragment = new HomeFragment();
     GoogleTranslate translator;
     EditText translateedittext;
     TextView translatabletext;
@@ -45,6 +45,7 @@ public class PhrasesFragment extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         translateedittext = (EditText) getView().findViewById(R.id.translateedittext);
+        translateedittext.setHint(homeFragment.getChosenFromLanguage() + " - " + homeFragment.getChosenToLanguage());
         Button translatebutton = (Button) getView().findViewById(R.id.translatebutton);
 
         translatebutton.setOnClickListener(new View.OnClickListener() {
@@ -56,14 +57,17 @@ public class PhrasesFragment extends Fragment {
             }
         });
 
+//        System.out.println("************in phrases: " + homeFragment.getChosenFromLanguageCode());
+
     }
 
     public void translated(){
 
-        String translatetotagalog = translateedittext.getText().toString();//get the value of text
-        String text = translator.translate(translatetotagalog, "en", "tl");
+        String toTranslate = translateedittext.getText().toString();//get the value of text
+//        String translated = translator.translate(toTranslate, "en", "tl");
+        String translated = translator.translate(toTranslate, homeFragment.getChosenFromLanguageCode(), homeFragment.getChosenToLanguageCode());
         translatabletext = (TextView) getView().findViewById(R.id.translatabletext);
-        translatabletext.setText(text);
+        translatabletext.setText(translated);
 
     }
 ////////////////////////////////////////////////////////////////////////////////////////////

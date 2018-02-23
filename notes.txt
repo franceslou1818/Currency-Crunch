@@ -5,7 +5,7 @@ Spain | ES | EUR
 France | FR | EUR
 Belgium | FR, NL, DE | EUR
 Philippines | TL | PHP
-Turkey |
+Turkey | TR | EUR TRY
 
 
 

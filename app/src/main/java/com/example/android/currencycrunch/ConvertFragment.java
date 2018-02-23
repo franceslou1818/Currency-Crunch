@@ -20,6 +20,8 @@ import android.widget.TextView;
  */
 public class ConvertFragment extends Fragment {
 
+    HomeFragment homeFragment = new HomeFragment();
+
     FixerConvert converter;
     EditText convertedittext;
     TextView convertabletext;
@@ -42,6 +44,7 @@ public class ConvertFragment extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         convertedittext = (EditText) getView().findViewById(R.id.convertedittext);
+        convertedittext.setHint(homeFragment.getChosenFromCurrency()+" - "+homeFragment.getChosenToCurrency());
         Button convertbutton = (Button) getView().findViewById(R.id.convertbutton);
 
         convertbutton.setOnClickListener(new View.OnClickListener() {
@@ -50,11 +53,16 @@ public class ConvertFragment extends Fragment {
                 new Converting().execute();
             }
         });
+
     }
 
     public void converted(){
         String valueToConvert = convertedittext.getText().toString(); //get the value of text
-        Double valueConverted = converter.convert("GBP", "PHP", Double.parseDouble(valueToConvert));
+//        Double valueConverted = converter.convert("GBP", "PHP", Double.parseDouble(valueToConvert));
+//        System.out.println("**************getAllChosen: " + homeFragment.getAllChosen());
+        System.out.println("**************getChosenFromCurrencyCode: " + homeFragment.getChosenFromCurrencyCode());
+        System.out.println("**************getChosenToCurrencyCode: " + homeFragment.getChosenToCurrencyCode());
+        Double valueConverted = converter.convert(homeFragment.getChosenFromCurrencyCode(), homeFragment.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
         convertabletext.setText(valueConverted.toString());
     }

@@ -31,12 +31,18 @@ import java.util.Hashtable;
 public class HomeFragment extends Fragment {
 
 
-    private static Hashtable<String,String[]> countriesLangCurrDict = new Hashtable<String,String[]>();
+    private static Hashtable<String,String[]> countriesLangCurrDict = new Hashtable<String,String[]>(); // country:[langs, currs]
     private static Hashtable<String,String> languagesCodes = new Hashtable<String,String>(); // <languageCode,languageName>
     private static Hashtable<String,String> currenciesCodes = new Hashtable<String,String>(); // <currencyCode, currencyName>
 
     private static String chosenFromCountry;
     private static String chosenToCountry;
+
+    private static String chosenFromLanguage;
+    private static String chosenToLanguage;
+
+    private static String chosenFromCurrency;
+    private static String chosenToCurrency;
 
     Spinner spinnerFromCountry;
     ArrayAdapter<String> adapterFromCountry;
@@ -71,43 +77,102 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         populateDicts(); //populating all dictionaries from straing values xml files
 
-
-
         spinnerFromCountry = (Spinner) getView().findViewById(R.id.spinnerFromCountry);
         adapterFromCountry = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getAllCountries());
         adapterFromCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFromCountry.setAdapter(adapterFromCountry);
+        spinnerFromCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                String selectedItemText = (String) adapterView.getItemAtPosition(position);
+                chosenFromCountry = selectedItemText;
+                spinnerFromLanguage = (Spinner) getView().findViewById(R.id.spinnerFromLanguage);
+                adapterFromLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getLanguagesOfCountry(selectedItemText));
+                adapterFromLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerFromLanguage.setAdapter(adapterFromLanguage);
+                spinnerFromLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                        String selectedItemText = (String) adapterView.getItemAtPosition(position);
+                        chosenFromLanguage = selectedItemText;
+
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                    }
+                });
+
+
+                spinnerFromCurrency = (Spinner) getView().findViewById(R.id.spinnerFromCurrency);
+                adapterFromCurrency = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getCurrenciesOfCountry(selectedItemText));
+                adapterFromCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerFromCurrency.setAdapter(adapterFromCurrency);
+                spinnerFromCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                        String selectedItemText = (String) adapterView.getItemAtPosition(position);
+                        chosenFromCurrency = selectedItemText;
+
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                    }
+                });
+
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
 
         spinnerToCountry = (Spinner) getView().findViewById(R.id.spinnerToCountry);
         adapterToCountry = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getAllCountries());
         adapterToCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerToCountry.setAdapter(adapterToCountry);
+        spinnerToCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                String selectedItemText = (String) adapterView.getItemAtPosition(position);
+                chosenToCountry = selectedItemText;
+                spinnerToLanguage = (Spinner) getView().findViewById(R.id.spinnerToLanguage);
+                adapterToLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getLanguagesOfCountry(selectedItemText));
+                adapterToLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerToLanguage.setAdapter(adapterToLanguage);
+                spinnerToLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                        String selectedItemText = (String) adapterView.getItemAtPosition(position);
+                        chosenToLanguage = selectedItemText;
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                    }
+                });
 
-        spinnerFromLanguage = (Spinner) getView().findViewById(R.id.spinnerFromLanguage);
-        adapterFromLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getAllLanguages());
-//        adapterFromLanguage = ArrayAdapter.createFromResource(getActivity(), R.array.languages, android.R.layout.simple_spinner_item);
-        adapterFromLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerFromLanguage.setAdapter(adapterFromLanguage);
 
-        spinnerToLanguage = (Spinner) getView().findViewById(R.id.spinnerToLanguage);
-        adapterToLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getAllLanguages());
-//        adapterToLanguage = ArrayAdapter.createFromResource(getActivity(), R.array.languages, android.R.layout.simple_spinner_item);
-        adapterToLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerToLanguage.setAdapter(adapterToLanguage);
+                spinnerToCurrency = (Spinner) getView().findViewById(R.id.spinnerToCurrency);
+                adapterToCurrency = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getCurrenciesOfCountry(selectedItemText));
+                adapterToCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerToCurrency.setAdapter(adapterToCurrency);
+                spinnerToCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                        String selectedItemText = (String) adapterView.getItemAtPosition(position);
+                        chosenToCurrency = selectedItemText;
 
-        spinnerFromCurrency = (Spinner) getView().findViewById(R.id.spinnerFromCurrency);
-        adapterFromCurrency = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getAllCurrencies());
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                    }
+                });
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
 
-//        adapterFromCurrency = ArrayAdapter.createFromResource(getActivity(), R.array.currencies, android.R.layout.simple_spinner_item);
-        adapterFromCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerFromCurrency.setAdapter(adapterFromCurrency);
-
-        spinnerToCurrency = (Spinner) getView().findViewById(R.id.spinnerToCurrency);
-        adapterToCurrency = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getAllCurrencies());
-//        adapterToCurrency = ArrayAdapter.createFromResource(getActivity(), R.array.currencies, android.R.layout.simple_spinner_item);
-        adapterToCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerToCurrency.setAdapter(adapterToCurrency);
-
+//        System.out.println("************getAllChosen: " + getAllChosen());
     }
 
     public void populateDicts() {
@@ -156,6 +221,83 @@ public class HomeFragment extends Fragment {
         }
 //        System.out.println("******************Currencies: " + Arrays.toString(currencies));
         return currencies;
+    }
+
+    public String[] getLanguagesOfCountry(String country) {
+        String[] langCodes = countriesLangCurrDict.get(country)[0].split(" ");
+        String[] correspondingLangs = new String[langCodes.length];
+        for (int i = 0; i < langCodes.length; i++) {
+            correspondingLangs[i] = languagesCodes.get(langCodes[i]);
+        }
+//        System.out.println("******************getLanguagesOfCountry: " + Arrays.toString(correspondingLangs));
+        return correspondingLangs;
+    }
+
+    public String[] getCurrenciesOfCountry(String country) {
+        String[] currCodes = countriesLangCurrDict.get(country)[1].split(" ");
+        String[] correspondingCurrs = new String[currCodes.length];
+        for (int i = 0; i < currCodes.length; i++) {
+            correspondingCurrs[i] = currenciesCodes.get(currCodes[i]);
+        }
+//        System.out.println("******************getCurrenciesOfCountry: " + Arrays.toString(correspondingCurrs));
+        return correspondingCurrs;
+    }
+
+    public String getChosenFromLanguageCode() {
+        for (String key : languagesCodes.keySet()) {
+            if ( languagesCodes.get(key) == chosenFromLanguage)
+                return key;
+        }
+        return null;
+    }
+
+    public String getChosenToLanguageCode() {
+        for (String key : languagesCodes.keySet()) {
+            if ( languagesCodes.get(key) == chosenToLanguage)
+                return key;
+        }
+        return null;
+    }
+
+    public String getChosenFromLanguage() {
+        return chosenFromLanguage;
+    }
+
+    public String getChosenToLanguage() {
+        return chosenToLanguage;
+    }
+
+    public String getChosenFromCurrencyCode() {
+        for (String key : currenciesCodes.keySet()) {
+            if ( currenciesCodes.get(key) == chosenFromCurrency)
+                return key;
+        }
+        return null;
+    }
+
+    public String getChosenToCurrencyCode() {
+        for (String key : currenciesCodes.keySet()) {
+            if ( currenciesCodes.get(key) == chosenToCurrency)
+                return key;
+        }
+        return null;
+    }
+
+    public String getChosenFromCurrency() {
+        return chosenFromCurrency;
+    }
+
+    public String getChosenToCurrency() {
+        return chosenToCurrency;
+    }
+
+    public String getAllChosen() {
+        return "chosenFromCountry: " + chosenFromCountry + '\n' +
+                "chosenToCountry: " + chosenToCountry + '\n' +
+                "chosenFromLanguage: " + chosenFromLanguage + '\n' +
+                "chosenToLanguage: " + chosenToLanguage + '\n' +
+                "chosenFromCurrency: " + chosenFromCurrency + '\n' +
+                "chosenToCurrency: " + chosenToCurrency;
     }
 
 }
