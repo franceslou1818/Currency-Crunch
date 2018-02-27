@@ -3,4 +3,11 @@
     <color name="colorPrimaryDark">#405d27</color>
     <color name="colorPrimary">#82b74b</color>
     <color name="colorAccent">#03A9F4</color>
+
+    <!-- Welcome screens background colour-->
+    <color name="bg_screen">#20d2bb</color>
+    <!-- Inactive dot colour -->
+    <color name="dot_dark_screen">#14a895</color>
+    <!-- Active dot colour -->
+    <color name="dot_light_screen">#8cf9eb</color>
 </resources>

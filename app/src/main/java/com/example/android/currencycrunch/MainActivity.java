@@ -1,5 +1,6 @@
 package com.example.android.currencycrunch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -75,6 +76,11 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.startupMenu) {
+            PrefManager prefManager = new PrefManager(this);
+            if (!prefManager.isFirstTimeLaunch()){
+                prefManager.setIsFirstTimeLaunch(true);
+                startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+            }
             return true;
         }
 
