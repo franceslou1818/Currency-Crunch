@@ -89,6 +89,7 @@ public class WelcomeActivity extends AppCompatActivity {
                     // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
+                    prefManager.setIsFirstTimeLaunch(false);
                     launchHomeScreen();
                 }
             }
@@ -97,9 +98,6 @@ public class WelcomeActivity extends AppCompatActivity {
 
     private void addBottomDots(int currentPage) {
         dots = new TextView[layouts.length];
-
-        //int[] colorsActive = getResources().getIntArray(R.array.array_dot_active);
-        //int[] colorsInactive = getResources().getIntArray(R.array.array_dot_inactive);
 
         dotsLayout.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
