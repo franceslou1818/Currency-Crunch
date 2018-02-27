@@ -1,7 +1,9 @@
 package com.example.android.currencycrunch;
 
 
+import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -22,7 +24,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
+import java.util.Set;
 
 
 /**
@@ -32,8 +37,10 @@ public class HomeFragment extends Fragment {
 
 
     private static Hashtable<String,String[]> countriesLangCurrDict = new Hashtable<String,String[]>(); // country:[langs, currs]
-    private static Hashtable<String,String> languagesCodes = new Hashtable<String,String>(); // <languageCode,languageName>
-    private static Hashtable<String,String> currenciesCodes = new Hashtable<String,String>(); // <currencyCode, currencyName>
+//    private static Hashtable<String,String> languagesCodes = new Hashtable<String,String>(); // <languageCode,languageName>
+    private static Map<String, String> languagesCodes = new HashMap<String, String>();
+//    private static Hashtable<String,String> currenciesCodes = new Hashtable<String,String>(); // <currencyCode, currencyName>
+    private static Map<String, String> currenciesCodes = new HashMap<String, String>();
 
     private static String chosenFromCountry;
     private static String chosenToCountry;
@@ -64,6 +71,15 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment() {
         // Required empty public constructor
+//        chosenFromCountry = "UK";
+//        chosenToCountry = "Philippines";
+//
+//        chosenFromLanguage = "English(en)";
+//        chosenToLanguage = "Tagalog(tl)";
+//
+//        chosenFromCurrency = "Pound Sterling(gbp)";
+//        chosenToCurrency = "Philippine Peso(php)";
+//        populateDicts();
     }
 
     @Override
@@ -75,7 +91,8 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        populateDicts(); //populating all dictionaries from straing values xml files
+        populateDicts(); //populating all dictionaries from string values xml files
+//        System.out.println("test");
 
         spinnerFromCountry = (Spinner) getView().findViewById(R.id.spinnerFromCountry);
         adapterFromCountry = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getAllCountries());
@@ -118,8 +135,6 @@ public class HomeFragment extends Fragment {
                     public void onNothingSelected(AdapterView<?> adapterView) {
                     }
                 });
-
-
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -172,92 +187,39 @@ public class HomeFragment extends Fragment {
             }
         });
 
-//        System.out.println("************getAllChosen: " + getAllChosen());
     }
 
     public void populateDicts() {
-        for (String l : getResources().getStringArray(R.array.languages)) {
-            String[] lSplit = l.split(":");
-            languagesCodes.put(lSplit[0], lSplit[1]);
-        }
-        for (String c : getResources().getStringArray(R.array.currencies)) {
-            String[] cSplit = c.split(":");
-            currenciesCodes.put(cSplit[0], cSplit[1]);
-        }
-        String[] countryLangCurr = getResources().getStringArray(R.array.countryLangCurr);
+
+
+        String[] countryLangCurr = getActivity().getResources().getStringArray(R.array.countryLangCurr);
         for (String s : countryLangCurr) {
             String[] sSplit = s.split(":");
             countriesLangCurrDict.put(sSplit[0],Arrays.copyOfRange(sSplit, 1, sSplit.length));
         }
+
+        for (String l : getActivity().getResources().getStringArray(R.array.languages)) {
+            String[] lSplit = l.split(":");
+            languagesCodes.put(lSplit[0], lSplit[1]);
+        }
+
+        for (String c : getActivity().getResources().getStringArray(R.array.currencies)) {
+            String[] cSplit = c.split(":");
+            currenciesCodes.put(cSplit[0], cSplit[1]);
+        }
+
     }
 
     public String[] getAllCountries(){
-        String[] countries = new String[countriesLangCurrDict.size()];
-        int i = 0;
-        for (String key : countriesLangCurrDict.keySet()) {
-            countries[i] = key;
-            i++;
-        }
-        return countries;
+        Set<String> countries = countriesLangCurrDict.keySet();
+        String[] countriesArray = countries.toArray(new String[countries.size()]);
+        return countriesArray;
     }
 
-    public String[] getAllLanguages(){
-        String[] languages = new String[languagesCodes.size()];
-        int i = 0;
-        for (String value : languagesCodes.values()) {
-            languages[i] = value;
-            i++;
-        }
-//        System.out.println("******************languages: " + Arrays.toString(languages));
-        return languages;
-    }
 
-    public String[] getAllCurrencies(){
-        String[] currencies = new String[currenciesCodes.size()];
-        int i = 0;
-        for (String value : currenciesCodes.values()) {
-            currencies[i] = value;
-            i++;
-        }
-//        System.out.println("******************Currencies: " + Arrays.toString(currencies));
-        return currencies;
-    }
+    public String[] getLanguagesOfCountry(String country) { return countriesLangCurrDict.get(country)[0].split("_"); }
 
-    public String[] getLanguagesOfCountry(String country) {
-        String[] langCodes = countriesLangCurrDict.get(country)[0].split(" ");
-        String[] correspondingLangs = new String[langCodes.length];
-        for (int i = 0; i < langCodes.length; i++) {
-            correspondingLangs[i] = languagesCodes.get(langCodes[i]);
-        }
-//        System.out.println("******************getLanguagesOfCountry: " + Arrays.toString(correspondingLangs));
-        return correspondingLangs;
-    }
-
-    public String[] getCurrenciesOfCountry(String country) {
-        String[] currCodes = countriesLangCurrDict.get(country)[1].split(" ");
-        String[] correspondingCurrs = new String[currCodes.length];
-        for (int i = 0; i < currCodes.length; i++) {
-            correspondingCurrs[i] = currenciesCodes.get(currCodes[i]);
-        }
-//        System.out.println("******************getCurrenciesOfCountry: " + Arrays.toString(correspondingCurrs));
-        return correspondingCurrs;
-    }
-
-    public String getChosenFromLanguageCode() {
-        for (String key : languagesCodes.keySet()) {
-            if ( languagesCodes.get(key) == chosenFromLanguage)
-                return key;
-        }
-        return null;
-    }
-
-    public String getChosenToLanguageCode() {
-        for (String key : languagesCodes.keySet()) {
-            if ( languagesCodes.get(key) == chosenToLanguage)
-                return key;
-        }
-        return null;
-    }
+    public String[] getCurrenciesOfCountry(String country) { return countriesLangCurrDict.get(country)[1].split("_"); }
 
     public String getChosenFromLanguage() {
         return chosenFromLanguage;
@@ -265,22 +227,6 @@ public class HomeFragment extends Fragment {
 
     public String getChosenToLanguage() {
         return chosenToLanguage;
-    }
-
-    public String getChosenFromCurrencyCode() {
-        for (String key : currenciesCodes.keySet()) {
-            if ( currenciesCodes.get(key) == chosenFromCurrency)
-                return key;
-        }
-        return null;
-    }
-
-    public String getChosenToCurrencyCode() {
-        for (String key : currenciesCodes.keySet()) {
-            if ( currenciesCodes.get(key) == chosenToCurrency)
-                return key;
-        }
-        return null;
     }
 
     public String getChosenFromCurrency() {
@@ -291,13 +237,31 @@ public class HomeFragment extends Fragment {
         return chosenToCurrency;
     }
 
+    public String getChosenFromLanguageCode() { return languagesCodes.get(chosenFromLanguage); }
+
+    public String getChosenToLanguageCode() { return languagesCodes.get(chosenToLanguage); }
+
+    public String getChosenFromCurrencyCode() { return currenciesCodes.get(chosenFromCurrency); }
+
+    public String getChosenToCurrencyCode() { return currenciesCodes.get(chosenToCurrency); }
+
+
+
     public String getAllChosen() {
         return "chosenFromCountry: " + chosenFromCountry + '\n' +
                 "chosenToCountry: " + chosenToCountry + '\n' +
                 "chosenFromLanguage: " + chosenFromLanguage + '\n' +
                 "chosenToLanguage: " + chosenToLanguage + '\n' +
                 "chosenFromCurrency: " + chosenFromCurrency + '\n' +
-                "chosenToCurrency: " + chosenToCurrency;
+                "chosenToCurrency: " + chosenToCurrency + '\n' +
+                "getChosenFromLanguageCode(): " + getChosenFromLanguageCode() + '\n' +
+                "getChosenToLanguageCode(): " + getChosenToLanguageCode() + '\n' +
+                "getChosenFromCurrencyCode(): " + getChosenFromCurrencyCode() + '\n' +
+                "getChosenToCurrencyCode(): " + getChosenToCurrencyCode() + '\n';
     }
-
+//    public static void main(String[] args) {
+//
+//        HomeFragment hf = new HomeFragment();
+//
+//    }
 }

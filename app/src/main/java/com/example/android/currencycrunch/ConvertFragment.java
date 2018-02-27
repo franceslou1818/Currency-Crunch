@@ -58,10 +58,6 @@ public class ConvertFragment extends Fragment {
 
     public void converted(){
         String valueToConvert = convertedittext.getText().toString(); //get the value of text
-//        Double valueConverted = converter.convert("GBP", "PHP", Double.parseDouble(valueToConvert));
-//        System.out.println("**************getAllChosen: " + homeFragment.getAllChosen());
-        System.out.println("**************getChosenFromCurrencyCode: " + homeFragment.getChosenFromCurrencyCode());
-        System.out.println("**************getChosenToCurrencyCode: " + homeFragment.getChosenToCurrencyCode());
         Double valueConverted = converter.convert(homeFragment.getChosenFromCurrencyCode(), homeFragment.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
         convertabletext.setText(valueConverted.toString());

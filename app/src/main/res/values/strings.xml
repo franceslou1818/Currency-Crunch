@@ -9,33 +9,33 @@
 
     <!--country:language:currency-->
     <string-array name="countryLangCurr">
-        <item>UK:en:gbp</item>
-        <item>Ireland:en ga:eur</item>
-        <item>US:en:usd</item>
-        <item>Spain:es:eur</item>
-        <item>France:fr:eur</item>
-        <item>Belgium:fr nl de:eur</item>
-        <item>Philippines:tl:php</item>
-        <item>Turkey:tr:eur try</item>
+        <item>UK:English(en):Pound Sterling(gbp)</item>
+        <item>Ireland:English(en)_Irish(ga):Euro(eur)</item>
+        <item>US:English(en):United States Dollar(usd)</item>
+        <item>Spain:Spanish(es):Euro(eur)</item>
+        <item>France:French(fr):Euro(eur)</item>
+        <item>Belgium:French(fr)_Dutch(nl)_German(de):Euro(eur)</item>
+        <item>Philippines:Tagalog(tl):Philippine Peso(php)</item>
+        <item>Turkey:Turkish(tr):Euro(eur)_Turkish Lira(try)</item>
     </string-array>
 
     <string-array name="languages">
-        <item>en:English(en)</item>
-        <item>ga:Irish(ga)</item>
-        <item>es:Spanish(es)</item>
-        <item>fr:French(fr)</item>
-        <item>nl:Dutch(nl)</item>
-        <item>de:German(de)</item>
-        <item>tl:Tagalog(tl)</item>
-        <item>tr:Turkish(tr)</item>
+        <item>English(en):en</item>
+        <item>Irish(ga):ga</item>
+        <item>Spanish(es):es</item>
+        <item>French(fr):fr</item>
+        <item>Dutch(nl):nl</item>
+        <item>German(de):de</item>
+        <item>Tagalog(tl):tl</item>
+        <item>Turkish(tr):tr</item>
     </string-array>
 
     <string-array name="currencies">
-        <item>eur:Euro(eur)</item>
-        <item>gbp:Pound Sterling(gbp)</item>
-        <item>usd:United States Dollar(usd)</item>
-        <item>php:Philippine Peso(php)</item>
-        <item>try:Turkish Lira(try)</item>
+        <item>Euro(eur):eur</item>
+        <item>Pound Sterling(gbp):gbp</item>
+        <item>United States Dollar(usd):usd</item>
+        <item>Philippine Peso(php):php</item>
+        <item>Turkish Lira(try):try</item>
     </string-array>
 
 
