@@ -81,20 +81,12 @@ public class FixerConvert {
 
         String fromCurrUpper = "";
         fromCurrUpper = fromCurr.toUpperCase();
-//        fromCurrUpper = fromCurr;
         String toCurrUpper = "";
         toCurrUpper = toCurr.toUpperCase();
-//        toCurrUpper = toCurr;
 
             double toCurrAmount =0.0; // to return
 
-//        double fromCurrAmt = allConversions.get(fromCurr);
-//        double toCurrAmt = allConversions.get(toCurr);
-//        System.out.println("********fromCurrAmt: " + fromCurrAmt );
-//        System.out.println("******toCurrAmt: " + toCurrAmt );
-//        System.out.println("*******conversion: " + fromCurrAmount);
-
-        System.out.println("*************Convert: " + fromCurrUpper + " " + toCurrUpper + " " + fromCurrAmount);
+//        System.out.println("*************Convert: " + fromCurrUpper + " " + toCurrUpper + " " + fromCurrAmount);
 
         try {
             String urlBaseSpecified = convertApiUrl+"?base="+fromCurrUpper+"&symbols="+toCurrUpper;

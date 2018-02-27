@@ -44,7 +44,8 @@ public class ConvertFragment extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         convertedittext = (EditText) getView().findViewById(R.id.convertedittext);
-        convertedittext.setHint(homeFragment.getChosenFromCurrency()+" - "+homeFragment.getChosenToCurrency());
+//        convertedittext.setHint(homeFragment.getChosenFromCurrency()+" - "+homeFragment.getChosenToCurrency());
+        convertedittext.setHint(Preferences.getChosenFromCurrency()+" - "+Preferences.getChosenToCurrency());
         Button convertbutton = (Button) getView().findViewById(R.id.convertbutton);
 
         convertbutton.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +59,8 @@ public class ConvertFragment extends Fragment {
 
     public void converted(){
         String valueToConvert = convertedittext.getText().toString(); //get the value of text
-        Double valueConverted = converter.convert(homeFragment.getChosenFromCurrencyCode(), homeFragment.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
+//        Double valueConverted = converter.convert(homeFragment.getChosenFromCurrencyCode(), homeFragment.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
+        Double valueConverted = converter.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
         convertabletext.setText(valueConverted.toString());
     }

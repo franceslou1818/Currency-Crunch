@@ -45,7 +45,8 @@ public class PhrasesFragment extends Fragment {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         translateedittext = (EditText) getView().findViewById(R.id.translateedittext);
-        translateedittext.setHint(homeFragment.getChosenFromLanguage() + " - " + homeFragment.getChosenToLanguage());
+//        translateedittext.setHint(homeFragment.getChosenFromLanguage() + " - " + homeFragment.getChosenToLanguage());
+        translateedittext.setHint(Preferences.getChosenFromLanguage() + " - " + Preferences.getChosenToLanguage());
         Button translatebutton = (Button) getView().findViewById(R.id.translatebutton);
 
         translatebutton.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +66,9 @@ public class PhrasesFragment extends Fragment {
 
         String toTranslate = translateedittext.getText().toString();//get the value of text
 //        String translated = translator.translate(toTranslate, "en", "tl");
-        String translated = translator.translate(toTranslate, homeFragment.getChosenFromLanguageCode(), homeFragment.getChosenToLanguageCode());
+//        String translated = translator.translate(toTranslate, homeFragment.getChosenFromLanguageCode(), homeFragment.getChosenToLanguageCode());
+        String translated = translator.translate(toTranslate, Preferences.getChosenFromLanguageCode(), Preferences.getChosenToLanguageCode());
+
         translatabletext = (TextView) getView().findViewById(R.id.translatabletext);
         translatabletext.setText(translated);
 
