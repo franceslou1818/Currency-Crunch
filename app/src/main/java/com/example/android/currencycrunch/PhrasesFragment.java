@@ -10,6 +10,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,14 +23,18 @@ import android.widget.TextView;
 
 public class PhrasesFragment extends Fragment {
 
-    HomeFragment homeFragment = new HomeFragment();
-    GoogleTranslate translator;
-    EditText translateedittext;
-    TextView translatabletext;
+//    HomeFragment homeFragment = new HomeFragment();
+    private GoogleTranslate translator;
+    private EditText translateedittext;
+    private TextView translatabletext;
+
+    private PhrasesAdapter phrasesAdapter;
+    private RecyclerView phrasesRecyclerView;
 
 
-    public PhrasesFragment() {
-        // Required empty public constructor
+
+    public PhrasesFragment() {// Required empty public constructor
+//        translator = new GoogleTranslate(getActivity());
     }
 
 
@@ -42,31 +48,34 @@ public class PhrasesFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        //for translation button
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         translateedittext = (EditText) getView().findViewById(R.id.translateedittext);
-//        translateedittext.setHint(homeFragment.getChosenFromLanguage() + " - " + homeFragment.getChosenToLanguage());
         translateedittext.setHint(Preferences.getChosenFromLanguage() + " - " + Preferences.getChosenToLanguage());
         Button translatebutton = (Button) getView().findViewById(R.id.translatebutton);
 
         translatebutton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 new Translating().execute();
-
             }
         });
 
-//        System.out.println("************in phrases: " + homeFragment.getChosenFromLanguageCode());
-
+        //for the common phrases list list
+        phrasesRecyclerView = (RecyclerView) getView().findViewById(R.id.recyclerview_phrases);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        phrasesRecyclerView.setLayoutManager(layoutManager);
+        phrasesRecyclerView.setHasFixedSize(true);
+        phrasesAdapter = new PhrasesAdapter(getActivity());
+        phrasesRecyclerView.setAdapter(phrasesAdapter);
     }
 
-    public void translated(){
+    public void translated(){ // translate button
 
         String toTranslate = translateedittext.getText().toString();//get the value of text
-//        String translated = translator.translate(toTranslate, "en", "tl");
-//        String translated = translator.translate(toTranslate, homeFragment.getChosenFromLanguageCode(), homeFragment.getChosenToLanguageCode());
+//        String translated = translator.translate(toTranslate, Preferences.getChosenFromLanguageCode(), Preferences.getChosenToLanguageCode());
         String translated = translator.translate(toTranslate, Preferences.getChosenFromLanguageCode(), Preferences.getChosenToLanguageCode());
 
         translatabletext = (TextView) getView().findViewById(R.id.translatabletext);
@@ -82,7 +91,9 @@ public class PhrasesFragment extends Fragment {
         protected Void doInBackground(Void... params) {
 
             try {
-                translator = new GoogleTranslate(getString(R.string.apiKey));
+//                translator = new GoogleTranslate(getString(R.string.apiKey));
+                translator = new GoogleTranslate(getActivity());
+
                 Thread.sleep(1000);
             } catch (Exception e) {
                 e.printStackTrace();
