@@ -89,7 +89,6 @@ public class HomeFragment extends Fragment {
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
                         Preferences.setChosenFromLanguage(selectedItemText);
-
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> adapterView) {

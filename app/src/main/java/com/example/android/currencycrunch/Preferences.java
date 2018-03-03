@@ -2,6 +2,7 @@ package com.example.android.currencycrunch;
 
 
 import android.content.Context;
+import android.os.StrictMode;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -29,6 +30,14 @@ public class Preferences {
     private static String chosenFromCurrency;
     private static String chosenToCurrency;
 
+    private static String[] phrasesList = {"Where is my change?",
+                                            "I would like to buy this please.",
+                                            "How much is this item?",
+                                            "Keep the change."};
+
+    private static String[] phrasesFromList = new String[phrasesList.length];
+    private static String[] phrasesToList = new String[phrasesList.length];
+
     public Preferences(Context c) {
         context = c;
         populateDicts();
@@ -43,24 +52,32 @@ public class Preferences {
         chosenFromCurrency = "Pound Sterling(gbp)";
         chosenToCurrency = "Philippine Peso(php)";
 
+        populateLists();
+
+
     }
+    public static void populateLists() {
+
+        for (int i = 0; i<phrasesList.length; i++) {
+            String translationFrom = GoogleTranslate.translate(phrasesList[i], "en", getChosenFromLanguageCode());
+            String translationTo = GoogleTranslate.translate(phrasesList[i], "en", getChosenToLanguageCode());
+            phrasesFromList[i] = translationFrom;
+            phrasesToList[i] = translationTo;
+        }
+    }
+
 
     public void populateDicts() {
 
-//        String[] countryLangCurr = getActivity().getResources().getStringArray(R.array.countryLangCurr);
         String[] countryLangCurr = context.getResources().getStringArray(R.array.countryLangCurr);
         for (String s : countryLangCurr) {
             String[] sSplit = s.split(":");
             countriesLangCurrDict.put(sSplit[0], Arrays.copyOfRange(sSplit, 1, sSplit.length));
         }
-
-//        for (String l : getActivity().getResources().getStringArray(R.array.languages)) {
         for (String l : context.getResources().getStringArray(R.array.languages)) {
             String[] lSplit = l.split(":");
             languagesCodes.put(lSplit[0], lSplit[1]);
         }
-
-//        for (String c : getActivity().getResources().getStringArray(R.array.currencies)) {
         for (String c : context.getResources().getStringArray(R.array.currencies)) {
             String[] cSplit = c.split(":");
             currenciesCodes.put(cSplit[0], cSplit[1]);
@@ -108,17 +125,21 @@ public class Preferences {
 
     public static String getChosenToCurrencyCode() { return currenciesCodes.get(chosenToCurrency); }
 
-    ////
+    ////setters
     public static void setChosenFromCountry(String s) { chosenFromCountry = s; }
 
     public static void setChosenToCountry(String s) {
         chosenToCountry = s;
     }
 
-    public static void setChosenFromLanguage(String s) { chosenFromLanguage = s; }
+    public static void setChosenFromLanguage(String s) {
+        chosenFromLanguage = s;
+        populateLists();
+    }
 
     public static void setChosenToLanguage(String s) {
         chosenToLanguage = s;
+        populateLists();
     }
 
     public static void setChosenFromCurrency(String s) {
@@ -129,20 +150,11 @@ public class Preferences {
         chosenToCurrency = s;
     }
 
+/////////// for common phrases
+    public static String[] getPhrasesList() { return phrasesList; }
+    public static String[] getPhrasesFromList() { return phrasesFromList; }
+    public static String[] getPhrasesToList() { return phrasesToList; }
 
 
-
-    public String getAllChosen() {
-        return "chosenFromCountry: " + chosenFromCountry + '\n' +
-                "chosenToCountry: " + chosenToCountry + '\n' +
-                "chosenFromLanguage: " + chosenFromLanguage + '\n' +
-                "chosenToLanguage: " + chosenToLanguage + '\n' +
-                "chosenFromCurrency: " + chosenFromCurrency + '\n' +
-                "chosenToCurrency: " + chosenToCurrency + '\n' +
-                "getChosenFromLanguageCode(): " + getChosenFromLanguageCode() + '\n' +
-                "getChosenToLanguageCode(): " + getChosenToLanguageCode() + '\n' +
-                "getChosenFromCurrencyCode(): " + getChosenFromCurrencyCode() + '\n' +
-                "getChosenToCurrencyCode(): " + getChosenToCurrencyCode() + '\n';
-    }
 
 }

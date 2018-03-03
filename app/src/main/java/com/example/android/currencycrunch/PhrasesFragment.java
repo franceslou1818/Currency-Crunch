@@ -50,8 +50,8 @@ public class PhrasesFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
         //for translation button
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//        StrictMode.setThreadPolicy(policy);
         translateedittext = (EditText) getView().findViewById(R.id.translateedittext);
         translateedittext.setHint(Preferences.getChosenFromLanguage() + " - " + Preferences.getChosenToLanguage());
         Button translatebutton = (Button) getView().findViewById(R.id.translatebutton);
@@ -92,7 +92,8 @@ public class PhrasesFragment extends Fragment {
 
             try {
 //                translator = new GoogleTranslate(getString(R.string.apiKey));
-                translator = new GoogleTranslate(getActivity());
+//                translator = new GoogleTranslate(getActivity());
+                translator = new GoogleTranslate();
 
                 Thread.sleep(1000);
             } catch (Exception e) {

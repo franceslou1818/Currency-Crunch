@@ -46,10 +46,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Preferences pref = new Preferences(this);
 //        GoogleTranslate translator = new GoogleTranslate(this);
+        Preferences pref = new Preferences(this);
 //        PhrasesAdapter phrasesAdap = new PhrasesAdapter(this);
-
 
     }
 
