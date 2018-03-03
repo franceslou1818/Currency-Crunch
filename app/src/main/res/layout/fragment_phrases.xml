@@ -1,61 +1,81 @@
-
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
-    <!--android:background="#c6c6c6"-->
+    android:layout_alignParentTop="true"
+    android:layout_alignStart="@+id/translatabletext"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/translatabletext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Hi, Translate Me!"
-        android:textSize="25sp" />
 
-    <EditText
-        android:id="@+id/translateedittext"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/translatabletext"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/white"
-        android:hint="Enter Phrase to Translate"
-        android:padding="5dp" />
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_weight=".5">
+        <!--xmlns:tools="http://schemas.android.com/tools"-->
+        <!--android:background="#c6c6c6"-->
+        <TextView
+            android:id="@+id/translatabletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Hi, Translate Me!"
+            android:textSize="25sp" />
+        <EditText
+            android:id="@+id/translateedittext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/translatabletext"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:hint="Enter Phrase to Translate"
+            android:padding="5dp" />
+        <Button
+            android:id="@+id/translatebutton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/translateedittext"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:text="Translate" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/translatebutton"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/translateedittext"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        android:text="Translate" />
-
-</RelativeLayout>
-
-    <!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--tools:context="com.example.android.currencycrunch.PhrasesFragment">-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:text="Phrases fragment" />-->
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_weight=".5" >
+        <!--android:background="#c6c6c6"-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_phrases"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"/>
 
 
+        <!-- A progress bar that will be shown to users to indicate that weather data is loading -->
+        <ProgressBar
+            android:id="@+id/pbPhrases_loading_indicator"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
 
-    <!--</FrameLayout>-->
+    </RelativeLayout>
+
+</LinearLayout>
