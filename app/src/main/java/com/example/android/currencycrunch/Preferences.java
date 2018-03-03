@@ -33,6 +33,7 @@ public class Preferences {
         context = c;
         populateDicts();
 
+        //defaults
         chosenFromCountry = "UK";
         chosenToCountry = "Philippines";
 
@@ -77,6 +78,13 @@ public class Preferences {
     public static String[] getLanguagesOfCountry(String country) { return countriesLangCurrDict.get(country)[0].split("_"); }
 
     public static String[] getCurrenciesOfCountry(String country) { return countriesLangCurrDict.get(country)[1].split("_"); }
+
+
+    public static String getChosenFromCountry() { return chosenFromCountry; }
+
+    public static String getChosenToCountry() {
+        return chosenToCountry;
+    }
 
     public static String getChosenFromLanguage() { return chosenFromLanguage; }
 

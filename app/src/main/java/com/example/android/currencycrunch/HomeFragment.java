@@ -68,10 +68,12 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
+
         spinnerFromCountry = (Spinner) getView().findViewById(R.id.spinnerFromCountry);
         adapterFromCountry = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getAllCountries());
         adapterFromCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFromCountry.setAdapter(adapterFromCountry);
+        spinnerFromCountry.setSelection(adapterFromCountry.getPosition(Preferences.getChosenFromCountry()));
         spinnerFromCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -81,6 +83,7 @@ public class HomeFragment extends Fragment {
                 adapterFromLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getLanguagesOfCountry(selectedItemText));
                 adapterFromLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerFromLanguage.setAdapter(adapterFromLanguage);
+                spinnerFromLanguage.setSelection(adapterFromLanguage.getPosition(Preferences.getChosenFromLanguage()));
                 spinnerFromLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -98,6 +101,7 @@ public class HomeFragment extends Fragment {
                 adapterFromCurrency = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getCurrenciesOfCountry(selectedItemText));
                 adapterFromCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerFromCurrency.setAdapter(adapterFromCurrency);
+                spinnerFromCurrency.setSelection(adapterFromCurrency.getPosition(Preferences.getChosenFromCurrency()));
                 spinnerFromCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -119,6 +123,7 @@ public class HomeFragment extends Fragment {
         adapterToCountry = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getAllCountries());
         adapterToCountry.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerToCountry.setAdapter(adapterToCountry);
+        spinnerToCountry.setSelection(adapterToCountry.getPosition(Preferences.getChosenToCountry()));
         spinnerToCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -128,6 +133,7 @@ public class HomeFragment extends Fragment {
                 adapterToLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getLanguagesOfCountry(selectedItemText));
                 adapterToLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerToLanguage.setAdapter(adapterToLanguage);
+                spinnerToLanguage.setSelection(adapterToLanguage.getPosition(Preferences.getChosenToLanguage()));
                 spinnerToLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -144,6 +150,7 @@ public class HomeFragment extends Fragment {
                 adapterToCurrency = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getCurrenciesOfCountry(selectedItemText));
                 adapterToCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerToCurrency.setAdapter(adapterToCurrency);
+                spinnerToCurrency.setSelection(adapterToCurrency.getPosition(Preferences.getChosenToCurrency()));
                 spinnerToCurrency.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -161,8 +168,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
     }
-
 
 }

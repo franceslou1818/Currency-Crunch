@@ -1,58 +1,84 @@
-
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
-    <!--android:background="#c6c6c6"-->
+    android:layout_alignParentTop="true"
+    android:layout_alignStart="@+id/translatabletext"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/convertabletext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Hi, Convert Me!"
-        android:textSize="25sp" />
-
-    <EditText
-        android:id="@+id/convertedittext"
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_below="@+id/convertabletext"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:background="@android:color/white"
-        android:hint="GBP - PHP"
-        android:padding="5dp"
-        android:inputType="numberDecimal" />
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_weight=".5" >
+        <!--android:background="#c6c6c6"-->
 
-    <Button
-        android:id="@+id/convertbutton"
+        <TextView
+            android:id="@+id/convertabletext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Hi, Convert Me!"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/convertedittext"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/convertabletext"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:background="@android:color/white"
+            android:hint="GBP - PHP"
+            android:padding="5dp"
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/convertbutton"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/convertedittext"
+            android:layout_marginTop="19dp"
+            android:text="CONVERT"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/convertedittext"
-        android:layout_marginTop="19dp"
-        android:text="CONVERT"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_weight=".5" >
+        <!--android:background="#c6c6c6"-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_convert"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"/>
 
-</RelativeLayout>
 
+        <!-- A progress bar that will be shown to users to indicate that weather data is loading -->
+        <ProgressBar
+            android:id="@+id/pbConver_loading_indicator"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
 
-<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--tools:context="com.example.android.currencycrunch.ConvertFragment">-->
+    </RelativeLayout>
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="convert fragment" />-->
+</LinearLayout>
 
-<!--</FrameLayout>-->
 

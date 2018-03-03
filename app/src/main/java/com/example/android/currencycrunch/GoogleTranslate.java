@@ -22,10 +22,15 @@ import javax.net.ssl.HttpsURLConnection;
 public class GoogleTranslate {
 
     private String key;
+    private Context context;
 
 
-    public GoogleTranslate(String apiKey) {
-        key = apiKey;
+//    public GoogleTranslate(String apiKey) {
+//        key = apiKey;
+//    }
+    public GoogleTranslate(Context c) {
+        context = c;
+        key = context.getResources().getString(R.string.apiKey);
     }
 
 
