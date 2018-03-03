@@ -41,8 +41,8 @@ public class ConvertFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//        StrictMode.setThreadPolicy(policy);
         convertedittext = (EditText) getView().findViewById(R.id.convertedittext);
 //        convertedittext.setHint(homeFragment.getChosenFromCurrency()+" - "+homeFragment.getChosenToCurrency());
         convertedittext.setHint(Preferences.getChosenFromCurrency()+" - "+Preferences.getChosenToCurrency());
