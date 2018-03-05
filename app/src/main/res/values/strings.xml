@@ -55,12 +55,12 @@
         <item>Turkish Lira(try):try</item>
     </string-array>
 
-    <!--<string-array name="phrases">-->
-        <!--<item>Where is my change?</item>-->
-        <!--<item>I would like to buy this please.</item>-->
-        <!--<item>How much is this item?</item>-->
-        <!--<item>Keep the change.</item>-->
-    <!--</string-array>-->
+    <string-array name="phrases">
+        <item>Where is my change?</item>
+        <item>I would like to buy this please.</item>
+        <item>How much is this item?</item>
+        <item>Keep the change.</item>
+    </string-array>
 
 
 </resources>

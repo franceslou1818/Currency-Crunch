@@ -49,9 +49,6 @@ public class PhrasesFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        //for translation button
-//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//        StrictMode.setThreadPolicy(policy);
         translateedittext = (EditText) getView().findViewById(R.id.translateedittext);
         translateedittext.setHint(Preferences.getChosenFromLanguage() + " - " + Preferences.getChosenToLanguage());
         Button translatebutton = (Button) getView().findViewById(R.id.translatebutton);
@@ -70,12 +67,12 @@ public class PhrasesFragment extends Fragment {
         phrasesRecyclerView.setHasFixedSize(true);
         phrasesAdapter = new PhrasesAdapter(getActivity());
         phrasesRecyclerView.setAdapter(phrasesAdapter);
+
     }
 
     public void translated(){ // translate button
 
         String toTranslate = translateedittext.getText().toString();//get the value of text
-//        String translated = translator.translate(toTranslate, Preferences.getChosenFromLanguageCode(), Preferences.getChosenToLanguageCode());
         String translated = translator.translate(toTranslate, Preferences.getChosenFromLanguageCode(), Preferences.getChosenToLanguageCode());
 
         translatabletext = (TextView) getView().findViewById(R.id.translatabletext);
@@ -91,8 +88,6 @@ public class PhrasesFragment extends Fragment {
         protected Void doInBackground(Void... params) {
 
             try {
-//                translator = new GoogleTranslate(getString(R.string.apiKey));
-//                translator = new GoogleTranslate(getActivity());
                 translator = new GoogleTranslate();
 
                 Thread.sleep(1000);
