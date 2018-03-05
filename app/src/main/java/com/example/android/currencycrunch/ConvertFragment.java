@@ -20,7 +20,7 @@ import android.widget.TextView;
  */
 public class ConvertFragment extends Fragment {
 
-    HomeFragment homeFragment = new HomeFragment();
+//    HomeFragment homeFragment = new HomeFragment();
 
     FixerConvert converter;
     EditText convertedittext;
@@ -41,10 +41,10 @@ public class ConvertFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//        StrictMode.setThreadPolicy(policy);
+
+//        System.out.println("*********get all: "+Preferences.prefUser.getAll());
+
         convertedittext = (EditText) getView().findViewById(R.id.convertedittext);
-//        convertedittext.setHint(homeFragment.getChosenFromCurrency()+" - "+homeFragment.getChosenToCurrency());
         convertedittext.setHint(Preferences.getChosenFromCurrency()+" - "+Preferences.getChosenToCurrency());
         Button convertbutton = (Button) getView().findViewById(R.id.convertbutton);
 
@@ -59,7 +59,6 @@ public class ConvertFragment extends Fragment {
 
     public void converted(){
         String valueToConvert = convertedittext.getText().toString(); //get the value of text
-//        Double valueConverted = converter.convert(homeFragment.getChosenFromCurrencyCode(), homeFragment.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         Double valueConverted = converter.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
         convertabletext.setText(valueConverted.toString());

@@ -2,10 +2,12 @@ package com.example.android.currencycrunch;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
@@ -15,60 +17,93 @@ import com.example.android.currencycrunch.R;
 
 public class Preferences {
 
-    Context context;
+    private static Context context;
 
-    private static Hashtable<String,String[]> countriesLangCurrDict = new Hashtable<String,String[]>(); // country:[langs, currs]
-    private static Map<String, String> languagesCodes = new HashMap<String, String>();
-    private static Map<String, String> currenciesCodes = new HashMap<String, String>();
+    private static SharedPreferences prefUser;
+    private static SharedPreferences.Editor prefUserEditor;
+//    private static Map<String,?> mapToCompare = new Map<String,?>();
 
-    private static String chosenFromCountry;
-    private static String chosenToCountry;
+    private static Hashtable<String,String[]> countriesLangCurrDict = new Hashtable<String,String[]>(); // {country:[langs, currs]}
+    private static Map<String, String> languagesCodes = new HashMap<String, String>(); //{language:code}
+    private static Map<String, String> currenciesCodes = new HashMap<String, String>(); // {currency:code}
 
-    private static String chosenFromLanguage;
-    private static String chosenToLanguage;
+    private static String[] phrasesList; // common phrases in english
 
-    private static String chosenFromCurrency;
-    private static String chosenToCurrency;
-
-    private static String[] phrasesList = {"Where is my change?",
-                                            "I would like to buy this please.",
-                                            "How much is this item?",
-                                            "Keep the change."};
-
-    private static String[] phrasesFromList = new String[phrasesList.length];
-    private static String[] phrasesToList = new String[phrasesList.length];
 
     public Preferences(Context c) {
         context = c;
         populateDicts();
+        phrasesList = context.getResources().getStringArray(R.array.phrases); // populate phrases list in english
 
-        //defaults
-        chosenFromCountry = "UK";
-        chosenToCountry = "Philippines";
+        prefUser = context.getSharedPreferences("userPref", 0);
+        prefUserEditor = prefUser.edit();
 
-        chosenFromLanguage = "English(en)";
-        chosenToLanguage = "Tagalog(tl)";
+//        prefUserEditor.clear();
+//        prefUserEditor.apply();
+//        setPrefDefaults();
 
-        chosenFromCurrency = "Pound Sterling(gbp)";
-        chosenToCurrency = "Philippine Peso(php)";
+        Map<String,?> prefMap = Preferences.prefUser.getAll();
 
-        populateLists();
+        if ( prefMap.values().contains(null) &&
+                !prefMap.containsKey("chosenFromCountry") &&
+                !prefMap.containsKey("chosenToCountry") &&
+                !prefMap.containsKey("chosenFromLanguage") &&
+                !prefMap.containsKey("chosenToLanguage") &&
+                !prefMap.containsKey("chosenFromCurrency") &&
+                !prefMap.containsKey("chosenToCurrency") &&
+                !prefMap.containsKey("phrasesFrom") &&
+                !prefMap.containsKey("phrasesTo") ) {
 
+            System.out.println("********first if1: ");
+            setPrefDefaults();
+
+        } //else do nothing. shared preferences is filled
 
     }
-    public static void populateLists() {
 
+    //defaults
+    public void setPrefDefaults() {
+        prefUserEditor.clear();
+        prefUserEditor.putString("chosenFromCountry","UK");
+        prefUserEditor.putString("chosenToCountry", "Philippines");
+        prefUserEditor.putString("chosenFromLanguage", "English(en)");
+        prefUserEditor.putString("chosenToLanguage","Tagalog(tl)");
+        prefUserEditor.putString("chosenFromCurrency","Pound Sterling(gbp)");
+        prefUserEditor.putString("chosenToCurrency","Philippine Peso(php)");
+        prefUserEditor.putString("phrasesFrom", getPhrasesInLang("en"));
+        prefUserEditor.putString("phrasesTo", getPhrasesInLang("tl"));
+        prefUserEditor.apply();
+    }
+
+    // called when user clicks button to save preference in home fragment
+    public static void saveSharedUserPref(String fromCountry,String toCountry,
+                                            String fromLang,String toLang,
+                                            String fromCurr,String toCurr) {
+        prefUserEditor.putString("chosenFromCountry",fromCountry);
+        prefUserEditor.putString("chosenToCountry", toCountry);
+        prefUserEditor.putString("chosenFromLanguage", fromLang);
+        prefUserEditor.putString("chosenToLanguage",toLang);
+        prefUserEditor.putString("chosenFromCurrency",fromCurr);
+        prefUserEditor.putString("chosenToCurrency",toCurr);
+        prefUserEditor.putString("phrasesFrom", getPhrasesInLang(languagesCodes.get(fromLang)));
+        prefUserEditor.putString("phrasesTo", getPhrasesInLang(languagesCodes.get(toLang)));
+        prefUserEditor.apply();
+    }
+
+
+    public static String getPhrasesInLang(String langCode) {
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i<phrasesList.length; i++) {
-            String translationFrom = GoogleTranslate.translate(phrasesList[i], "en", getChosenFromLanguageCode());
-            String translationTo = GoogleTranslate.translate(phrasesList[i], "en", getChosenToLanguageCode());
-            phrasesFromList[i] = translationFrom;
-            phrasesToList[i] = translationTo;
+            String translation = GoogleTranslate.translate(phrasesList[i], "en", langCode);
+            sb.append(translation);
+            if (i != (phrasesList.length-1))
+                sb.append("&&"); // to split to array when retrieving phrases. array needed as it preserves order. set does'nt.
         }
+        return sb.toString();
     }
 
-
+//////////populate hash maps variables above
     public void populateDicts() {
-
         String[] countryLangCurr = context.getResources().getStringArray(R.array.countryLangCurr);
         for (String s : countryLangCurr) {
             String[] sSplit = s.split(":");
@@ -91,70 +126,57 @@ public class Preferences {
         return countriesArray;
     }
 
+//    public static String[] getAllLanguages(){
+//        Set<String> countries = languagesCodes.keySet();
+//        String[] countriesArray = countries.toArray(new String[countries.size()]);
+//        return countriesArray;
+//    }
+//
+//    public static String[] getAllCurrencies(){
+//        Set<String> countries = currenciesCodes.keySet();
+//        String[] countriesArray = countries.toArray(new String[countries.size()]);
+//        return countriesArray;
+//    }
+
 
     public static String[] getLanguagesOfCountry(String country) { return countriesLangCurrDict.get(country)[0].split("_"); }
 
     public static String[] getCurrenciesOfCountry(String country) { return countriesLangCurrDict.get(country)[1].split("_"); }
 
+    public static String getChosenFromCountry() { return prefUser.getString("chosenFromCountry","N/A"); }
 
-    public static String getChosenFromCountry() { return chosenFromCountry; }
+    public static String getChosenToCountry() { return prefUser.getString("chosenToCountry","N/A"); }
 
-    public static String getChosenToCountry() {
-        return chosenToCountry;
-    }
+    public static String getChosenFromLanguage() { return prefUser.getString("chosenFromLanguage","N/A"); }
 
-    public static String getChosenFromLanguage() { return chosenFromLanguage; }
+    public static String getChosenToLanguage() { return prefUser.getString("chosenToLanguage","N/A"); }
 
-    public static String getChosenToLanguage() {
-        return chosenToLanguage;
-    }
+    public static String getChosenFromCurrency() { return prefUser.getString("chosenFromCurrency","N/A"); }
 
-    public static String getChosenFromCurrency() {
-        return chosenFromCurrency;
-    }
+    public static String getChosenToCurrency() { return prefUser.getString("chosenToCurrency","N/A"); }
 
-    public static String getChosenToCurrency() {
-        return chosenToCurrency;
-    }
+    public static String getChosenFromLanguageCode() { return languagesCodes.get(getChosenFromLanguage()); }
 
-    public static String getChosenFromLanguageCode() { return languagesCodes.get(chosenFromLanguage); }
+    public static String getChosenToLanguageCode() {return languagesCodes.get(getChosenToLanguage());}
 
-    public static String getChosenToLanguageCode() { return languagesCodes.get(chosenToLanguage); }
+    public static String getChosenFromCurrencyCode() {return currenciesCodes.get(getChosenFromCurrency());}
 
-    public static String getChosenFromCurrencyCode() { return currenciesCodes.get(chosenFromCurrency); }
+    public static String getChosenToCurrencyCode() {return currenciesCodes.get(getChosenToCurrency());}
 
-    public static String getChosenToCurrencyCode() { return currenciesCodes.get(chosenToCurrency); }
 
-    ////setters
-    public static void setChosenFromCountry(String s) { chosenFromCountry = s; }
-
-    public static void setChosenToCountry(String s) {
-        chosenToCountry = s;
-    }
-
-    public static void setChosenFromLanguage(String s) {
-        chosenFromLanguage = s;
-        populateLists();
-    }
-
-    public static void setChosenToLanguage(String s) {
-        chosenToLanguage = s;
-        populateLists();
-    }
-
-    public static void setChosenFromCurrency(String s) {
-        chosenFromCurrency = s;
-    }
-
-    public static void setChosenToCurrency(String s) {
-        chosenToCurrency = s;
-    }
-
-/////////// for common phrases
+/////////// getters of common phrases
     public static String[] getPhrasesList() { return phrasesList; }
-    public static String[] getPhrasesFromList() { return phrasesFromList; }
-    public static String[] getPhrasesToList() { return phrasesToList; }
 
+    public static String[] getPhrasesFromList() {
+        String s = prefUser.getString("phrasesFrom","N/A");
+        String[] sArr = s.split("&&");
+        return sArr;
+    }
 
+    public static String[] getPhrasesToList() {
+        String s = prefUser.getString("phrasesTo","N/A");
+        String[] sArr = s.split("&&");
+        return sArr;
+    }
 
 }

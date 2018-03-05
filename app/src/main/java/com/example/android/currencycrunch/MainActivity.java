@@ -19,6 +19,8 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+//    Preferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +48,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        GoogleTranslate translator = new GoogleTranslate(this);
         Preferences pref = new Preferences(this);
-//        PhrasesAdapter phrasesAdap = new PhrasesAdapter(this);
-
+//        pref = new Preferences(this);
+//        System.out.println("*********get all: "+Preferences.prefUser.getAll().isEmpty());
     }
 
     @Override

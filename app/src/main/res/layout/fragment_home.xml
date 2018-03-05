@@ -33,7 +33,7 @@
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFrom" />
         <!--android:background="@color/colorPrimary"-->
@@ -44,7 +44,7 @@
         android:layout_width="200dp"
         android:layout_height="75dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTo" />
         <!--android:background="@color/colorPrimary"-->
@@ -81,7 +81,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerFromLanguage" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFromLanguage"
+        app:layout_constraintVertical_bias="0.304" />
         <!--android:background="@color/colorPrimary"-->
         <!--android:popupBackground="@color/colorAccent"-->
 
@@ -94,8 +95,19 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerToLanguage" />
-        <!--android:background="@color/colorPrimary"-->
+        app:layout_constraintTop_toBottomOf="@+id/spinnerToLanguage"
+        app:layout_constraintVertical_bias="0.304" />
+
+    <Button
+        android:id="@+id/buttonChangePref"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Save Preferences"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <!--android:background="@color/colorPrimary"-->
         <!--android:popupBackground="@color/colorAccent"-->
 
 

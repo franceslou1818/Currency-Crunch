@@ -46,10 +46,8 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
     @Override
     public void onBindViewHolder(PhrasesAdapter.PhrasesAdapterViewHolder holder, int position) {
 
-//        String phrase = phrasesList.get(position);
         String phrase = Preferences.getPhrasesList()[position];
-//        holder.textViewFromPhrase.setText(phrase);
-//        holder.textViewToPhrase.setText(phrase);
+//        System.out.println("********phrases adapter: " + Arrays.toString(Preferences.getPhrasesFromList()));
         holder.textViewFromPhrase.setText(Preferences.getPhrasesFromList()[position]);
         holder.textViewToPhrase.setText(Preferences.getPhrasesToList()[position]);
     }
