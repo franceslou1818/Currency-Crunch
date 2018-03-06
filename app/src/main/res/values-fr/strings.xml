@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CurrencyCrunch</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="title_activity_welcome">Écran d\'accueil</string>
+    <string name="next">Prochain</string>
+    <string name="skip">Sauter</string>
+    <string name="start">Je l\'ai!</string>
+    <string name="slide_1_title">Bienvenue à CurrencyCrunch!</string>
+    <string name="slide_2_title">Apprendre</string>
+    <string name="slide_2_desc">Apprenez à reconnaître les devises étrangères!</string>
+    <string name="slide_3_title">Compter</string>
+    <string name="slide_3_desc">Obtenez de l\'aide pour ajouter votre changement avec notre calculatrice!</string>
+    <string name="slide_4_title">Traduire</string>
+    <string name="slide_4_desc">Apprenez quelques phrases rapides pour vous aider à gérer votre argent à l\'étranger!</string>
+    <string name="slide_5_title">Reconnaître</string>
+    <string name="slide_5_desc">Prenez une photo et découvrez quelle devise votre argent est!</string>
+    <string name="startup">Pages de démarrage</string>
+</resources>

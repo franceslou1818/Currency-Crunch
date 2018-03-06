@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CurrencyCrunch</string>
+    <string name="navigation_drawer_open">"Abrir el cajón de navegación "</string>
+    <string name="navigation_drawer_close">"Cerrar el cajón de navegación "</string>
+    <string name="title_activity_welcome">"Pantalla de inicio "</string>
+    <string name="next">"Siguiente "</string>
+    <string name="skip">"Omitir "</string>
+    <string name="start">¡Lo tengo!</string>
+    <string name="slide_1_title">"Bienvenido a CurrencyCrunch! "</string>
+    <string name="slide_2_title">"Aprender "</string>
+    <string name="slide_2_desc">"¡Aprende a reconocer monedas extranjeras! "</string>
+    <string name="slide_3_title">Contar</string>
+    <string name="slide_3_desc">"¡Obtenga ayuda para sumar el cambio con nuestra calculadora! "</string>
+    <string name="slide_4_title">Traducir</string>
+    <string name="slide_4_desc">"¡Aprenda algunas frases rápidas para ayudarlo a manejar su dinero en el extranjero! "</string>
+    <string name="slide_5_title">Reconocer</string>
+    <string name="slide_5_desc">"¡Toma una foto y descubre qué moneda es tu efectivo! "</string>
+    <string name="startup">"Páginas de inicio "</string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CurrencyCrunch</string>
+    <string name="navigation_drawer_open">"Gezinme çekmecesini aç "</string>
+    <string name="navigation_drawer_close">"Gezinme çekmecesini kapat "</string>
+    <string name="title_activity_welcome">"Ana ekran "</string>
+    <string name="next">Sonraki</string>
+    <string name="skip">Atlamak</string>
+    <string name="start">"Anladım! "</string>
+    <string name="slide_1_title">"CurrencyCrunch'a hoşgeldiniz! "</string>
+    <string name="slide_2_title">öğrenmek</string>
+    <string name="slide_2_desc">"Yabancı paraları tanımayı öğrenin! "</string>
+    <string name="slide_3_title">saymak</string>
+    <string name="slide_3_desc">"Değişikliğimizi hesap makinemize ekleyerek yardım alın! "</string>
+    <string name="slide_4_title">Çevirmek</string>
+    <string name="slide_4_desc">"Yurtdışında paranızla başa çıkmanıza yardımcı olmak için bazı hızlı ifadeler öğrenin! "</string>
+    <string name="slide_5_title">Tanımak</string>
+    <string name="slide_5_desc">"Bir fotoğraf çekin ve nakit olarak hangi para biriminde olduğunu öğrenin! "</string>
+    <string name="startup">Startup Pages</string>
+</resources>

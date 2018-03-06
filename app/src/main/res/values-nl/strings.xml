@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CurrencyCrunch</string>
+    <string name="navigation_drawer_open">Open de navigatielade</string>
+    <string name="navigation_drawer_close">Sluit de navigatielade</string>
+    <string name="title_activity_welcome">Thuis scherm</string>
+    <string name="next">Volgende</string>
+    <string name="skip">Overspringen</string>
+    <string name="start">egrepen!</string>
+    <string name="slide_1_title">Welkom bij CurrencyCrunch!</string>
+    <string name="slide_2_title">Leren</string>
+    <string name="slide_2_desc">Leer om vreemde valuta te herkennen!</string>
+    <string name="slide_3_title">Tellen</string>
+    <string name="slide_3_desc">Ontvang hulp bij het optellen van uw wijziging met onze calculator!</string>
+    <string name="slide_4_title">Vertalen</string>
+    <string name="slide_4_desc">Leer enkele snelle zinnen om u te helpen omgaan met uw geld in het buitenland!</string>
+    <string name="slide_5_title">Herken</string>
+    <string name="slide_5_desc">Maak een foto en ontdek welke valuta je contant geld is!</string>
+    <string name="startup">Startpagina</string>
+</resources>

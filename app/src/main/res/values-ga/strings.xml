@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CurrencyCrunch</string>
+    <string name="navigation_drawer_open">"Drawer nascleanúint oscailte "</string>
+    <string name="navigation_drawer_close">"Drawer nascleanúint dún "</string>
+    <string name="title_activity_welcome">"Scáileán Baile "</string>
+    <string name="next">"Ar Aghaidh "</string>
+    <string name="skip">"Scipeáil "</string>
+    <string name="start">"Fuair ​​sé! "</string>
+    <string name="slide_1_title">"Fáilte go CurrencyCrunch! "</string>
+    <string name="slide_2_title">Foghlaim</string>
+    <string name="slide_2_desc">"Foghlaim le hairgeadraí coigríche a aithint! "</string>
+    <string name="slide_3_title">Líon</string>
+    <string name="slide_3_desc">"Faigh cabhair le d'athrú a chur ar bun lenár n-áireamhán! "</string>
+    <string name="slide_4_title">Aistrigh</string>
+    <string name="slide_4_desc">"Foghlaim roinnt frásaí tapa chun cabhrú leat déileáil le do chuid airgid thar lear! "</string>
+    <string name="slide_5_title">"Aitheantas "</string>
+    <string name="slide_5_desc">"Glac grianghraf agus faigh amach cén airgead atá i do airgead tirim! "</string>
+    <string name="startup">"Leathanaigh Tosaithe "</string>
+</resources>

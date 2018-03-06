@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CurrencyCrunch</string>
+    <string name="navigation_drawer_open">"Buksan ang navigation drawer "</string>
+    <string name="navigation_drawer_close">"Isara ang drawer ng nabigasyon "</string>
+    <string name="title_activity_welcome">"Home screen "</string>
+    <string name="next">"Susunod "</string>
+    <string name="skip">Laktawan</string>
+    <string name="start">"Nakuha ko! "</string>
+    <string name="slide_1_title">"Maligayang pagdating sa CurrencyCrunch! "</string>
+    <string name="slide_2_title">Matuto</string>
+    <string name="slide_2_desc">"Alamin ang makilala ang mga banyagang pera! "</string>
+    <string name="slide_3_title">Bilangin</string>
+    <string name="slide_3_desc">"Kumuha ng tulong sa pagdaragdag ng iyong pagbabago sa aming calculator! "</string>
+    <string name="slide_4_title">Isalin</string>
+    <string name="slide_4_desc">"Alamin ang ilang mabilis na mga parirala upang matulungan kang harapin ang iyong pera sa ibang bansa! "</string>
+    <string name="slide_5_title">Makilala</string>
+    <string name="slide_5_desc">"Kumuha ng larawan at alamin kung anong pera ang iyong pera! "</string>
+    <string name="startup">"Mga Pahina ng Startup "</string>
+</resources>
