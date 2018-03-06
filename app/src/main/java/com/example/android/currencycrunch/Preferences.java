@@ -51,6 +51,7 @@ public class Preferences {
                 !prefMap.containsKey("chosenToLanguage") &&
                 !prefMap.containsKey("chosenFromCurrency") &&
                 !prefMap.containsKey("chosenToCurrency") &&
+                !prefMap.containsKey("coinsNames") &&
                 !prefMap.containsKey("phrasesFrom") &&
                 !prefMap.containsKey("phrasesTo") ) {
 
@@ -70,6 +71,7 @@ public class Preferences {
         prefUserEditor.putString("chosenToLanguage","Tagalog(tl)");
         prefUserEditor.putString("chosenFromCurrency","Pound Sterling(gbp)");
         prefUserEditor.putString("chosenToCurrency","Philippine Peso(php)");
+        prefUserEditor.putString("coinNames", getCoinsForCurr("tl","php"));
         prefUserEditor.putString("phrasesFrom", getPhrasesInLang("en"));
         prefUserEditor.putString("phrasesTo", getPhrasesInLang("tl"));
         prefUserEditor.apply();
@@ -85,6 +87,7 @@ public class Preferences {
         prefUserEditor.putString("chosenToLanguage",toLang);
         prefUserEditor.putString("chosenFromCurrency",fromCurr);
         prefUserEditor.putString("chosenToCurrency",toCurr);
+        prefUserEditor.putString("coinNames",getCoinsForCurr(languagesCodes.get(toLang),currenciesCodes.get(toCurr)));
         prefUserEditor.putString("phrasesFrom", getPhrasesInLang(languagesCodes.get(fromLang)));
         prefUserEditor.putString("phrasesTo", getPhrasesInLang(languagesCodes.get(toLang)));
         prefUserEditor.apply();
@@ -98,6 +101,26 @@ public class Preferences {
             sb.append(translation);
             if (i != (phrasesList.length-1))
                 sb.append("&&"); // to split to array when retrieving phrases. array needed as it preserves order. set does'nt.
+        }
+        return sb.toString();
+    }
+
+/*    int getRes2 = getResources().getIdentifier(setRes, "array", getPackageName());
+    String[] albums = getResources().getStringArray(getRes2);*/
+
+    //    Get coin names for selected currency and language
+    public static String getCoinsForCurr(String langCode, String currCode) {
+        if (currCode.equals("try")) currCode = "trl";
+        int resId = context.getResources().getIdentifier(currCode, "array", context.getPackageName());
+        String[] coinList = context.getResources().getStringArray(resId);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < coinList.length; i++){
+            String translation = GoogleTranslate.translate(coinList[i], "en", langCode);
+            sb.append(translation);
+            if (i != (coinList.length-1)){
+                sb.append("&&");
+            }
         }
         return sb.toString();
     }
@@ -175,6 +198,13 @@ public class Preferences {
 
     public static String[] getPhrasesToList() {
         String s = prefUser.getString("phrasesTo","N/A");
+        String[] sArr = s.split("&&");
+        return sArr;
+    }
+
+//    Getters for coin names
+    public static String[] getCoinsList() {
+        String s = prefUser.getString("coinNames", "N/A");
         String[] sArr = s.split("&&");
         return sArr;
     }

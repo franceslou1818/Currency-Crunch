@@ -14,4 +14,9 @@
     <dimen name="slide_title">30dp</dimen>
     <dimen name="slide_desc">16dp</dimen>
     <dimen name="desc_padding">40dp</dimen>
+
+    <!-- Coin dimens -->
+    <dimen name="small_coin">70dp</dimen>
+    <dimen name="calculate">30dp</dimen>
+
 </resources>

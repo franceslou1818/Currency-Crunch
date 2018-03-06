@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,8 @@ public class ConvertFragment extends Fragment {
     EditText convertedittext;
     TextView convertabletext;
 
+    private CurrencyAdapter currencyAdapter;
+    private RecyclerView currencyRecyclerView;
 
     public ConvertFragment() {
         // Required empty public constructor
@@ -54,6 +58,14 @@ public class ConvertFragment extends Fragment {
                 new Converting().execute();
             }
         });
+
+        //for the common phrases list list
+        currencyRecyclerView = (RecyclerView) getView().findViewById(R.id.recyclerview_coins);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        currencyRecyclerView.setLayoutManager(layoutManager);
+        currencyRecyclerView.setHasFixedSize(true);
+        currencyAdapter = new CurrencyAdapter(getActivity());
+        currencyRecyclerView.setAdapter(currencyAdapter);
 
     }
 
