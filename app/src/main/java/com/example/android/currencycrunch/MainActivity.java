@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         Preferences pref = new Preferences(this);
 
         ImageView myImage = (ImageView) findViewById(R.id.imageViewBg);
-        myImage.setAlpha(0.2f); //value: [0-255]. Where 0 is fully transparent and 255 is fully opaque.
+        myImage.setAlpha(0.1f); //value: [0-255]. Where 0 is fully transparent and 255 is fully opaque.
     }
 
 }

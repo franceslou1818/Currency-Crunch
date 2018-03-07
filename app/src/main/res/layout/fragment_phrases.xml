@@ -15,9 +15,8 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:layout_weight=".5">
-        <!--xmlns:tools="http://schemas.android.com/tools"-->
-        <!--android:background="#c6c6c6"-->
+        android:layout_weight=".25">
+
         <TextView
             android:id="@+id/translatabletext"
             android:layout_width="wrap_content"
@@ -58,15 +57,14 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:layout_weight=".5" >
-        <!--android:background="#c6c6c6"-->
+        android:layout_weight=".75" >
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview_phrases"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:paddingBottom="8dp"/>
-
 
         <!-- A progress bar that will be shown to users to indicate that weather data is loading -->
         <ProgressBar
