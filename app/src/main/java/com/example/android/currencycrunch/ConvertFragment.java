@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +22,14 @@ import android.widget.TextView;
  */
 public class ConvertFragment extends Fragment {
 
-    HomeFragment homeFragment = new HomeFragment();
+//    HomeFragment homeFragment = new HomeFragment();
 
     FixerConvert converter;
     EditText convertedittext;
     TextView convertabletext;
 
+    private CurrencyAdapter currencyAdapter;
+    private RecyclerView currencyRecyclerView;
 
     public ConvertFragment() {
         // Required empty public constructor
@@ -41,10 +45,10 @@ public class ConvertFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+
+//        System.out.println("*********get all: "+Preferences.prefUser.getAll());
+
         convertedittext = (EditText) getView().findViewById(R.id.convertedittext);
-//        convertedittext.setHint(homeFragment.getChosenFromCurrency()+" - "+homeFragment.getChosenToCurrency());
         convertedittext.setHint(Preferences.getChosenFromCurrency()+" - "+Preferences.getChosenToCurrency());
         Button convertbutton = (Button) getView().findViewById(R.id.convertbutton);
 
@@ -55,11 +59,18 @@ public class ConvertFragment extends Fragment {
             }
         });
 
+        //for the common phrases list list
+        currencyRecyclerView = (RecyclerView) getView().findViewById(R.id.recyclerview_coins);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        currencyRecyclerView.setLayoutManager(layoutManager);
+        currencyRecyclerView.setHasFixedSize(true);
+        currencyAdapter = new CurrencyAdapter(getActivity());
+        currencyRecyclerView.setAdapter(currencyAdapter);
+
     }
 
     public void converted(){
         String valueToConvert = convertedittext.getText().toString(); //get the value of text
-//        Double valueConverted = converter.convert(homeFragment.getChosenFromCurrencyCode(), homeFragment.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         Double valueConverted = converter.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
         convertabletext.setText(valueConverted.toString());

@@ -3,6 +3,7 @@
 package com.example.android.currencycrunch;
 
 import android.content.Context;
+import android.os.StrictMode;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -21,20 +22,21 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class GoogleTranslate {
 
-    private String key;
-    private Context context;
+    private static String key = "AIzaSyDymF-_GTUelaiSJYO1ET6PZZrDbX9QqP8";
 
-
-//    public GoogleTranslate(String apiKey) {
-//        key = apiKey;
-//    }
-    public GoogleTranslate(Context c) {
-        context = c;
-        key = context.getResources().getString(R.string.apiKey);
+    public GoogleTranslate() {
     }
 
+    public static String translate(String text, String from, String to) {
 
-    public String translate(String text, String from, String to) {
+        if (from.equals(to)) {
+            return text;
+        }
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+
         StringBuilder result = new StringBuilder();
         try {
             String encodedText = URLEncoder.encode(text, "UTF-8");

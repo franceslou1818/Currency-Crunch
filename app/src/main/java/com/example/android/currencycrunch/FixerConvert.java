@@ -7,6 +7,8 @@
 package com.example.android.currencycrunch;
 
 
+import android.os.StrictMode;
+
 import com.google.gson.JsonSyntaxException;
 
 import java.io.BufferedReader;
@@ -78,6 +80,9 @@ public class FixerConvert {
     }
 
     public Double convert(String fromCurr, String toCurr, double fromCurrAmount) {
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         String fromCurrUpper = "";
         fromCurrUpper = fromCurr.toUpperCase();

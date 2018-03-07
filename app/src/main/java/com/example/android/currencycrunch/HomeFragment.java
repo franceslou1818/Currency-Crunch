@@ -36,6 +36,8 @@ import java.util.Set;
  */
 public class HomeFragment extends Fragment {
 
+//    Preferences prefUser;
+
     Spinner spinnerFromCountry;
     ArrayAdapter<String> adapterFromCountry;
 
@@ -54,6 +56,15 @@ public class HomeFragment extends Fragment {
     Spinner spinnerToCurrency;
     ArrayAdapter<String> adapterToCurrency;
 
+    String chosenFromCountry;
+    String chosenToCountry;
+    String chosenFromLang;
+    String chosenToLang;
+    String chosenFromCurr;
+    String chosenToCurr;
+    
+    Button changePrefBtn;
+
     public HomeFragment() { // Required empty public constructor
         System.out.println("*************Home fragment constructor");
     }
@@ -61,13 +72,16 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+//        prefUser = new Preferences(getActivity());
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-
 
         spinnerFromCountry = (Spinner) getView().findViewById(R.id.spinnerFromCountry);
         adapterFromCountry = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getAllCountries());
@@ -78,7 +92,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String selectedItemText = (String) adapterView.getItemAtPosition(position);
-                Preferences.setChosenFromCountry(selectedItemText);
+//                Preferences.setChosenFromCountry(selectedItemText);
+                chosenFromCountry = selectedItemText;
                 spinnerFromLanguage = (Spinner) getView().findViewById(R.id.spinnerFromLanguage);
                 adapterFromLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getLanguagesOfCountry(selectedItemText));
                 adapterFromLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -88,8 +103,8 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-                        Preferences.setChosenFromLanguage(selectedItemText);
-
+//                        Preferences.setChosenFromLanguage(selectedItemText);
+                        chosenFromLang = selectedItemText;
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> adapterView) {
@@ -106,7 +121,8 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-                        Preferences.setChosenFromCurrency(selectedItemText);
+//                        Preferences.setChosenFromCurrency(selectedItemText);
+                        chosenFromCurr = selectedItemText;
 
                     }
                     @Override
@@ -128,7 +144,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String selectedItemText = (String) adapterView.getItemAtPosition(position);
-                Preferences.setChosenToCountry(selectedItemText);
+//                Preferences.setChosenToCountry(selectedItemText);
+                chosenToCountry = selectedItemText;
                 spinnerToLanguage = (Spinner) getView().findViewById(R.id.spinnerToLanguage);
                 adapterToLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getLanguagesOfCountry(selectedItemText));
                 adapterToLanguage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -138,7 +155,8 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-                        Preferences.setChosenToLanguage(selectedItemText);
+//                        Preferences.setChosenToLanguage(selectedItemText);
+                        chosenToLang = selectedItemText;
                     }
                     @Override
                     public void onNothingSelected(AdapterView<?> adapterView) {
@@ -155,7 +173,8 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-                        Preferences.setChosenToCurrency(selectedItemText);
+//                        Preferences.setChosenToCurrency(selectedItemText);
+                        chosenToCurr = selectedItemText;
 
                     }
                     @Override
@@ -168,6 +187,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+        changePrefBtn = (Button) getView().findViewById(R.id.buttonChangePref);
+        changePrefBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Preferences.saveSharedUserPref(chosenFromCountry,chosenToCountry,chosenFromLang,chosenToLang,chosenFromCurr,chosenToCurr);
+
+                Toast.makeText(getActivity(), "Preferences Saved!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
+
+
 
 }
