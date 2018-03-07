@@ -1,115 +1,314 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal" >
+<?xml version="1.0" encoding="utf-8"?>
 
-    <TextView
-        android:id="@+id/textViewFrom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text="From"
-        android:textSize="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layoutHomeFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textViewTo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="32dp"
-        android:text="To"
-        android:textSize="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+        <!--android:background="@drawable/side_nav_bar"-->
+
+        <TextView
+            android:id="@+id/textViewHomeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Choose Your Preferences"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3" />
+
+        <TextView
+            android:id="@+id/textViewFrom"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            android:text="From"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textViewTo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            android:text="To"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/textViewCountry"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:text="Country"
+            android:textAlignment="viewStart"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerFromCountry"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35" />
+
+        <Spinner
+            android:id="@+id/spinnerToCountry"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35" />
+    </LinearLayout>>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/textViewLanguage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:text="Language"
+            android:textAlignment="viewStart"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerFromLanguage"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35" />
+
+        <Spinner
+            android:id="@+id/spinnerToLanguage"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35" />
+    </LinearLayout>>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.15"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/textViewCurrency"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:text="Currency"
+            android:textAlignment="viewStart"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerFromCurrency"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35" />
+
+        <Spinner
+            android:id="@+id/spinnerToCurrency"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35" />
+    </LinearLayout>>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <Button
+            android:id="@+id/buttonChangePref"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Save Preferences" />
+    </LinearLayout>
 
 
-    <Spinner
-        android:id="@+id/spinnerFromCountry"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFrom" />
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:popupBackground="@color/colorAccent"-->
-
-    <Spinner
-        android:id="@+id/spinnerToCountry"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTo" />
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:popupBackground="@color/colorAccent"-->
-
-    <Spinner
-        android:id="@+id/spinnerFromLanguage"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerFromCountry" />
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:popupBackground="@color/colorAccent"-->
-
-    <Spinner
-        android:id="@+id/spinnerToLanguage"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerToCountry" />
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:popupBackground="@color/colorAccent"-->
-
-    <Spinner
-        android:id="@+id/spinnerFromCurrency"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerFromLanguage"
-        app:layout_constraintVertical_bias="0.304" />
-        <!--android:background="@color/colorPrimary"-->
-        <!--android:popupBackground="@color/colorAccent"-->
-
-    <Spinner
-        android:id="@+id/spinnerToCurrency"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerToLanguage"
-        app:layout_constraintVertical_bias="0.304" />
-
-    <Button
-        android:id="@+id/buttonChangePref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Save Preferences"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-    <!--android:background="@color/colorPrimary"-->
-        <!--android:popupBackground="@color/colorAccent"-->
+</LinearLayout>
 
 
 
-</android.support.constraint.ConstraintLayout>
+
+
+
+
+    <!--<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="fill_parent"-->
+    <!--android:orientation="horizontal" >-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textViewFrom"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="32dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--android:text="From"-->
+        <!--android:textSize="50dp"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textViewTo"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginEnd="32dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--android:text="To"-->
+        <!--android:textSize="50dp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinnerFromCountry"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:layout_marginStart="32dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/textViewFrom" />-->
+        <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:popupBackground="@color/colorAccent"&ndash;&gt;-->
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinnerToCountry"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:layout_marginEnd="32dp"-->
+        <!--android:layout_marginTop="24dp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/textViewTo" />-->
+        <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:popupBackground="@color/colorAccent"&ndash;&gt;-->
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinnerFromLanguage"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:layout_marginStart="32dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/spinnerFromCountry" />-->
+        <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:popupBackground="@color/colorAccent"&ndash;&gt;-->
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinnerToLanguage"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:layout_marginEnd="32dp"-->
+        <!--android:layout_marginTop="32dp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/spinnerToCountry" />-->
+        <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:popupBackground="@color/colorAccent"&ndash;&gt;-->
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinnerFromCurrency"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginStart="32dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/spinnerFromLanguage"-->
+        <!--app:layout_constraintVertical_bias="0.304" />-->
+        <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:popupBackground="@color/colorAccent"&ndash;&gt;-->
+
+    <!--<Spinner-->
+        <!--android:id="@+id/spinnerToCurrency"-->
+        <!--android:layout_width="200dp"-->
+        <!--android:layout_height="75dp"-->
+        <!--android:layout_marginBottom="8dp"-->
+        <!--android:layout_marginEnd="32dp"-->
+        <!--android:layout_marginTop="8dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/spinnerToLanguage"-->
+        <!--app:layout_constraintVertical_bias="0.304" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/buttonChangePref"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="24dp"-->
+        <!--android:text="Save Preferences"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent" />-->
+    <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:popupBackground="@color/colorAccent"&ndash;&gt;-->
+
+
+
+<!--</android.support.constraint.ConstraintLayout>-->
