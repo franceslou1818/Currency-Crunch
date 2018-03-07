@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">CurrencyCrunch</string>
+    <string name="title_home">Home</string>
+    <string name="title_phrases">Phrases</string>
+    <string name="title_convert">Convert</string>
+    <string name="title_recognise">Recognise</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- Welcome Carousel Strings -->
-    <string name="title_activity_welcome">Home Screen</string>
+    <string name="title_activity_welcome">CurrencyCrunch</string>
     <string name="next">NEXT</string>
     <string name="skip">SKIP</string>
     <string name="start">GOT IT!</string>

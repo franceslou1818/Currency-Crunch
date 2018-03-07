@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_phrases"
+        android:icon="@drawable/ic_chat_bubble_outline_black_24dp"
+        android:title="@string/title_phrases" />
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_convert"
+        android:icon="@drawable/dollar_coin_24dp"
+        android:title="@string/title_convert" />
+
+</menu>

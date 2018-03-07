@@ -72,8 +72,6 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        prefUser = new Preferences(getActivity());
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
@@ -92,7 +90,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String selectedItemText = (String) adapterView.getItemAtPosition(position);
-//                Preferences.setChosenFromCountry(selectedItemText);
                 chosenFromCountry = selectedItemText;
                 spinnerFromLanguage = (Spinner) getView().findViewById(R.id.spinnerFromLanguage);
                 adapterFromLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getLanguagesOfCountry(selectedItemText));
@@ -103,7 +100,6 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-//                        Preferences.setChosenFromLanguage(selectedItemText);
                         chosenFromLang = selectedItemText;
                     }
                     @Override
@@ -121,7 +117,6 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-//                        Preferences.setChosenFromCurrency(selectedItemText);
                         chosenFromCurr = selectedItemText;
 
                     }
@@ -144,7 +139,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 String selectedItemText = (String) adapterView.getItemAtPosition(position);
-//                Preferences.setChosenToCountry(selectedItemText);
                 chosenToCountry = selectedItemText;
                 spinnerToLanguage = (Spinner) getView().findViewById(R.id.spinnerToLanguage);
                 adapterToLanguage = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Preferences.getLanguagesOfCountry(selectedItemText));
@@ -155,7 +149,6 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-//                        Preferences.setChosenToLanguage(selectedItemText);
                         chosenToLang = selectedItemText;
                     }
                     @Override
@@ -173,7 +166,6 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         String selectedItemText = (String) adapterView.getItemAtPosition(position);
-//                        Preferences.setChosenToCurrency(selectedItemText);
                         chosenToCurr = selectedItemText;
 
                     }
