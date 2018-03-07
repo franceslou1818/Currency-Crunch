@@ -92,14 +92,14 @@
                 android:layout_height="@dimen/small_coin"
                 android:layout_marginStart="@dimen/activity_vertical_margin"
                 android:contentDescription="One cent euro coin."
-                android:src="@drawable/euro_1_cent"/>
+                android:src="@drawaeur_0cent"/>
 
             <ImageView
                 android:layout_width="@dimen/small_coin"
                 android:layout_height="@dimen/small_coin"
                 android:layout_marginStart="@dimen/activity_vertical_margin"
                 android:contentDescription="Two cent euro coin."
-                android:src="@drawable/euro_2_cent"/>
+                android:src="@drawaeur_1cent"/>
 
 
         </LinearLayout>

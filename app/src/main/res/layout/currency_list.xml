@@ -16,7 +16,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/euro_1_cent"
+        android:src="@drawable/eur_0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/coinPhrase"
         app:layout_constraintLeft_toLeftOf="parent"

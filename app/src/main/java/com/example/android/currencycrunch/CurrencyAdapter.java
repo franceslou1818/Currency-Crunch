@@ -1,10 +1,14 @@
 package com.example.android.currencycrunch;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -40,10 +44,22 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         holder.textViewFromPhrase.setText(Preferences.getPhrasesFromList()[position]);
         holder.textViewToPhrase.setText(Preferences.getPhrasesToList()[position]);*/
 
+        String currCode = Preferences.getChosenToCurrencyCode();
+        StringBuilder imageName = new StringBuilder();
+        //System.out.println(position);
+        imageName.append(currCode + "_" + String.valueOf(position));
+        //imageName.append(".png");
+        //System.out.println(imageName.toString());
 
+        int imageId = context.getResources().getIdentifier(imageName.toString(), "drawable", context.getPackageName());
+        //Drawable coinDrawable = context.getResources().getDrawable(imageId);
+
+        Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
+                imageId);
 
         holder.coinPhrase.setText(GoogleTranslate.translate((Preferences.getCoinsList()[position]),"en",Preferences.getChosenToLanguageCode()));
         holder.sum.setText("0");
+        holder.coinImage.setImageBitmap(icon);
     }
 
     @Override
@@ -58,11 +74,13 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
 
         TextView coinPhrase;
         TextView sum;
+        ImageView coinImage;
 
         public CurrencyAdapterViewHolder(View itemView) {
             super(itemView);
             coinPhrase = (TextView) itemView.findViewById(R.id.coinPhrase);
             sum = (TextView) itemView.findViewById(R.id.coinSum);
+            coinImage = (ImageView) itemView.findViewById(R.id.coinImage);
 
         }
 
