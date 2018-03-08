@@ -2,6 +2,8 @@ package com.example.android.currencycrunch;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -19,9 +21,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class PhrasesFragment extends Fragment {
+public class PhrasesFragment extends Fragment {//implements PhrasesAdapter.PhrasesAdapterOnClickHandler {
 
 //    HomeFragment homeFragment = new HomeFragment();
     private GoogleTranslate translator;
@@ -36,6 +39,12 @@ public class PhrasesFragment extends Fragment {
     public PhrasesFragment() {// Required empty public constructor
 //        translator = new GoogleTranslate(getActivity());
     }
+
+//    @Override
+//    public void onClick() {
+//        Intent i = new Intent(getActivity(), Pop.class);
+//        startActivity(i);
+//    }
 
 
     @Override
@@ -56,7 +65,12 @@ public class PhrasesFragment extends Fragment {
         translatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Translating().execute();
+                if (translateedittext.getText().toString().matches("")) {
+                    Toast.makeText(getActivity(), "Please specify text to process", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    new Translating().execute();
+                }
             }
         });
 

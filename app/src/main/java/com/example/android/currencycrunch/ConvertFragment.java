@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -51,7 +52,12 @@ public class ConvertFragment extends Fragment {
         convertbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new Converting().execute();
+                if (convertedittext.getText().toString().matches("")) {
+                    Toast.makeText(getActivity(), "Please specify text to process", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    new Converting().execute();
+                }
             }
         });
 

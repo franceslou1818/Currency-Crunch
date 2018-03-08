@@ -11,12 +11,13 @@
         android:layout_weight="0.25">
 
         <TextView
-        android:id="@+id/translatabletext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hi, Translate Me!"
-        android:textAlignment="center"
-        android:textSize="25sp" />
+            android:id="@+id/translatabletext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hi, Translate Me!"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <EditText
         android:id="@+id/translateedittext"

@@ -10,4 +10,10 @@
         android:orderInCategory="100"
         android:title="@string/startup"
         app:showAsAction="never" />
+
+    <!--<item-->
+        <!--android:id="@+id/pop"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="pop"-->
+        <!--app:showAsAction="never" />-->
 </menu>

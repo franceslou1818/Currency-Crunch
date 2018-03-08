@@ -94,6 +94,10 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+//        if (id == R.id.pop) {
+//            startActivity(new Intent(MainActivity.this, Pop.class));
+//        }
+
         return super.onOptionsItemSelected(item);
     }
 

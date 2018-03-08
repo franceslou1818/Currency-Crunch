@@ -26,7 +26,9 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_welcome">
-
+        </activity>
+        <activity
+            android:name=".Pop">
         </activity>
     </application>
 

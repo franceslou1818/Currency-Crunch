@@ -66,6 +66,7 @@
         <item>Keep the change.</item>
     </string-array>
 
+
     <!-- Coin names in english -->
 
     <string-array name = "eur">

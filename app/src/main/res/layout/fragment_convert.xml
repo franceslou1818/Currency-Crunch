@@ -5,10 +5,10 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="0.25">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/convertabletext"
@@ -16,13 +16,14 @@
             android:layout_height="wrap_content"
             android:text="Hi, Convert Me!"
             android:textAlignment="center"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/convertedittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal" />
 
         <Button
             android:id="@+id/convertbutton"
@@ -36,14 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_weight="0.75">
+        android:layout_weight="0.5">
 
-        <!--<ProgressBar-->
-            <!--android:id="@+id/pbPhrases_loading_indicator"-->
-            <!--android:layout_width="42dp"-->
-            <!--android:layout_height="42dp"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:visibility="invisible" />-->
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview_coins"
@@ -51,6 +46,53 @@
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:paddingBottom="8dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="0.25">
+
+        <TextView
+            android:id="@+id/totalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Total:"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:id="@+id/totalFromTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="(Total From)"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_weight="0.3"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="="
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_weight="0.1"/>
+
+        <TextView
+            android:id="@+id/totalToTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="(Total To)"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_weight="0.3"/>
 
     </LinearLayout>
 

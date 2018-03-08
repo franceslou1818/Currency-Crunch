@@ -1,6 +1,7 @@
 package com.example.android.currencycrunch;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Keep;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,9 +22,17 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
 
     private Context context;
 
+
     public PhrasesAdapter(Context c) {
         this.context = c;
     }
+
+//    final private PhrasesAdapterOnClickHandler mClickHandler;
+//
+//    public interface PhrasesAdapterOnClickHandler {
+//        void onClick();
+//    }
+
 
     @Override
     public PhrasesAdapter.PhrasesAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -33,6 +42,8 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
 
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         PhrasesAdapterViewHolder viewHolder = new PhrasesAdapterViewHolder(view);
+//        view.setFocusable(true);
+
         return viewHolder;
     }
 
@@ -52,7 +63,7 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
-    public class PhrasesAdapterViewHolder extends RecyclerView.ViewHolder {
+    public class PhrasesAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView textViewFromPhrase;
         TextView textViewToPhrase;
@@ -60,9 +71,19 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
         public PhrasesAdapterViewHolder(View itemView) {
             super(itemView);
             textViewFromPhrase = (TextView) itemView.findViewById(R.id.textViewFromPhrase);
-            textViewToPhrase = (TextView) itemView.findViewById(R.id.textViewToPhrase);;
-
+            textViewToPhrase = (TextView) itemView.findViewById(R.id.textViewToPhrase);
+            itemView.setOnClickListener(this);
         }
+
+    @Override
+    public void onClick(View v) {
+//        int adapterPosition = getAdapterPosition();
+        Intent intent = new Intent(context,Pop.class);
+        intent.putExtra("from", textViewFromPhrase.getText().toString());
+        intent.putExtra("to", textViewToPhrase.getText().toString());
+        context.startActivity(intent);
+
+    }
 
     }
 }
