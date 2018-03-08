@@ -21,7 +21,6 @@ public class Preferences {
 
     private static SharedPreferences prefUser;
     private static SharedPreferences.Editor prefUserEditor;
-//    private static Map<String,?> mapToCompare = new Map<String,?>();
 
     private static Hashtable<String,String[]> countriesLangCurrDict = new Hashtable<String,String[]>(); // {country:[langs, currs]}
     private static Map<String, String> languagesCodes = new HashMap<String, String>(); //{language:code}
@@ -148,18 +147,6 @@ public class Preferences {
         String[] countriesArray = countries.toArray(new String[countries.size()]);
         return countriesArray;
     }
-
-//    public static String[] getAllLanguages(){
-//        Set<String> countries = languagesCodes.keySet();
-//        String[] countriesArray = countries.toArray(new String[countries.size()]);
-//        return countriesArray;
-//    }
-//
-//    public static String[] getAllCurrencies(){
-//        Set<String> countries = currenciesCodes.keySet();
-//        String[] countriesArray = countries.toArray(new String[countries.size()]);
-//        return countriesArray;
-//    }
 
 
     public static String[] getLanguagesOfCountry(String country) { return countriesLangCurrDict.get(country)[0].split("_"); }

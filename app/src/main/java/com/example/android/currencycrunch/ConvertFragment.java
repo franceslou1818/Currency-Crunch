@@ -22,8 +22,6 @@ import android.widget.TextView;
  */
 public class ConvertFragment extends Fragment {
 
-//    HomeFragment homeFragment = new HomeFragment();
-
     FixerConvert converter;
     EditText convertedittext;
     TextView convertabletext;
@@ -46,8 +44,6 @@ public class ConvertFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-//        System.out.println("*********get all: "+Preferences.prefUser.getAll());
-
         convertedittext = (EditText) getView().findViewById(R.id.convertedittext);
         convertedittext.setHint(Preferences.getChosenFromCurrency()+" - "+Preferences.getChosenToCurrency());
         Button convertbutton = (Button) getView().findViewById(R.id.convertbutton);
@@ -59,14 +55,13 @@ public class ConvertFragment extends Fragment {
             }
         });
 
-        //for the common phrases list list
+        //for the coins list
         currencyRecyclerView = (RecyclerView) getView().findViewById(R.id.recyclerview_coins);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         currencyRecyclerView.setLayoutManager(layoutManager);
         currencyRecyclerView.setHasFixedSize(true);
         currencyAdapter = new CurrencyAdapter(getActivity());
         currencyRecyclerView.setAdapter(currencyAdapter);
-
     }
 
     public void converted(){
@@ -90,7 +85,6 @@ public class ConvertFragment extends Fragment {
                 e.printStackTrace();
             }
             return null;
-
         }
 
         @Override

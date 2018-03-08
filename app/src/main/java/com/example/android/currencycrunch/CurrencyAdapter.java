@@ -5,11 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by matthew on 06/03/2018.
@@ -36,30 +40,42 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
     }
 
     @Override
-    public void onBindViewHolder(CurrencyAdapter.CurrencyAdapterViewHolder holder, int position) {
+    public void onBindViewHolder(final CurrencyAdapter.CurrencyAdapterViewHolder holder, int position) {
 
-/*
-        String phrase = Preferences.getPhrasesList()[position];
-//        System.out.println("********phrases adapter: " + Arrays.toString(Preferences.getPhrasesFromList()));
-        holder.textViewFromPhrase.setText(Preferences.getPhrasesFromList()[position]);
-        holder.textViewToPhrase.setText(Preferences.getPhrasesToList()[position]);*/
 
         String currCode = Preferences.getChosenToCurrencyCode();
         StringBuilder imageName = new StringBuilder();
-        //System.out.println(position);
         imageName.append(currCode + "_" + String.valueOf(position));
-        //imageName.append(".png");
-        //System.out.println(imageName.toString());
 
         int imageId = context.getResources().getIdentifier(imageName.toString(), "drawable", context.getPackageName());
-        //Drawable coinDrawable = context.getResources().getDrawable(imageId);
 
-        Bitmap icon = BitmapFactory.decodeResource(context.getResources(),
-                imageId);
+        Bitmap icon = BitmapFactory.decodeResource(context.getResources(), imageId);
 
         holder.coinPhrase.setText(GoogleTranslate.translate((Preferences.getCoinsList()[position]),"en",Preferences.getChosenToLanguageCode()));
-        holder.sum.setText("0");
         holder.coinImage.setImageBitmap(icon);
+
+        ImageButton plusBtn = (ImageButton) holder.itemView.findViewById(R.id.plusIcon);
+        plusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView coinSum = (TextView) holder.itemView.findViewById(R.id.coinSum);
+                int currentText = Integer.parseInt(coinSum.getText().toString());
+                coinSum.setText(Integer.toString(currentText+1));
+//                Toast.makeText(context, "plus clicked!" + holder.coinPhrase.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        ImageButton minusBtn = (ImageButton) holder.itemView.findViewById(R.id.minusIcon);
+        minusBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView coinSum = (TextView) holder.itemView.findViewById(R.id.coinSum);
+                int currentText = Integer.parseInt(coinSum.getText().toString());
+                coinSum.setText(Integer.toString(currentText-1));
+//                Toast.makeText(context, "plus clicked!" + holder.coinPhrase.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     @Override
@@ -73,13 +89,13 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
 
 
         TextView coinPhrase;
-        TextView sum;
+        TextView coinSum;
         ImageView coinImage;
 
         public CurrencyAdapterViewHolder(View itemView) {
             super(itemView);
             coinPhrase = (TextView) itemView.findViewById(R.id.coinPhrase);
-            sum = (TextView) itemView.findViewById(R.id.coinSum);
+            coinSum = (TextView) itemView.findViewById(R.id.coinSum);
             coinImage = (ImageView) itemView.findViewById(R.id.coinImage);
 
         }

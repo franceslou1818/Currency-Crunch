@@ -1,5 +1,6 @@
 package com.example.android.currencycrunch;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,6 +10,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +65,36 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView myImage = (ImageView) findViewById(R.id.imageViewBg);
         myImage.setAlpha(0.1f); //value: [0-255]. Where 0 is fully transparent and 255 is fully opaque.
+
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentManager homeFragmentManager = getSupportFragmentManager();
+        homeFragmentManager.beginTransaction().replace(R.id.fragment_content, homeFragment).commit();
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.startupMenu) {
+            PrefManager prefManager = new PrefManager(this);
+            if (!prefManager.isFirstTimeLaunch()){
+                prefManager.setIsFirstTimeLaunch(true);
+                startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+            }
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

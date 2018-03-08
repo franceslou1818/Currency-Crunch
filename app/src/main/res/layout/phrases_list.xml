@@ -10,27 +10,30 @@
     <TextView
         android:id="@+id/textViewFromPhrase"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="monospace"
+        android:text="Phrases From Text"
         android:textColor="#000"
         app:layout_constraintBottom_toTopOf="@+id/textViewToPhrase"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Phrases From Text"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewToPhrase"
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:fontFamily="monospace"
+        android:text="Phrases To Text"
+        android:textAlignment="textEnd"
         android:textColor="#000"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="Phrases To Text"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

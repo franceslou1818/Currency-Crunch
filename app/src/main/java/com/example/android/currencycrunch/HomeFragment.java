@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
     Button changePrefBtn;
 
     public HomeFragment() { // Required empty public constructor
-        System.out.println("*************Home fragment constructor");
+
     }
 
     @Override
@@ -75,8 +75,6 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
-
-
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -179,20 +177,55 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
         changePrefBtn = (Button) getView().findViewById(R.id.buttonChangePref);
         changePrefBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Preferences.saveSharedUserPref(chosenFromCountry,chosenToCountry,chosenFromLang,chosenToLang,chosenFromCurr,chosenToCurr);
-
-                Toast.makeText(getActivity(), "Preferences Saved!", Toast.LENGTH_SHORT).show();
+                new Saving().execute();
             }
         });
 
     }
 
+    public void saved(){
+        Preferences.saveSharedUserPref(chosenFromCountry,chosenToCountry,chosenFromLang,chosenToLang,chosenFromCurr,chosenToCurr);
+    }
 
 
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    private class Saving extends AsyncTask<Void, Void, Void> {
+
+        private ProgressDialog progress = null;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            //start the progress dialog
+            progress = ProgressDialog.show(getActivity(), null, "Saving Preferences...");
+            progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progress.setIndeterminate(true);
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            progress.dismiss();
+
+            super.onPostExecute(result);
+            saved();
+        }
+
+
+    }
 }

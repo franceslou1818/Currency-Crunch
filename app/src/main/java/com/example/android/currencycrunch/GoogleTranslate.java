@@ -87,12 +87,6 @@ public class GoogleTranslate {
         return null;
     }
 
-//    public static void main(String[] args) {
-//
-//        GoogleTranslate translator = new GoogleTranslate("AIzaSyDymF-_GTUelaiSJYO1ET6PZZrDbX9QqP8");
-//
-//        System.out.println("Hello World!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-//
-//    }
+
 
 }

@@ -18,13 +18,6 @@ import java.util.List;
 
 public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesAdapterViewHolder>{
 
-//    private static String[] phrasesList = {"Where is my change?",
-//                                        "I would like to buy this please.",
-//                                        "How much is this item?",
-//                                        "Keep the change."};
-//
-//    private static String[] phrasesFromList = new String[phrasesList.length];
-//    private static String[] phrasesToList = new String[phrasesList.length];
 
     private Context context;
 
