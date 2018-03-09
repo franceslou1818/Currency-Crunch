@@ -61,8 +61,9 @@
 
         <TextView
             android:id="@+id/totalTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="0.25"
             android:text="@string/total"
             android:textAlignment="center"
             android:textSize="25sp"
@@ -70,16 +71,22 @@
 
         <TextView
             android:id="@+id/totalFromTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="0.25"
             android:text="@string/placeholder"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
+<<<<<<< HEAD
             android:layout_width="wrap_content"
+=======
+            android:layout_width="0dp"
+>>>>>>> 1b92ae4d6582f34a05d3b401bd89acd289ca34e1
             android:layout_height="match_parent"
+            android:layout_weight="0.25"
             android:text="="
             android:textAlignment="center"
             android:textSize="25sp"
@@ -87,8 +94,9 @@
 
         <TextView
             android:id="@+id/totalToTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="0.25"
             android:text="@string/placeholder"
             android:textAlignment="center"
             android:textSize="25sp"
