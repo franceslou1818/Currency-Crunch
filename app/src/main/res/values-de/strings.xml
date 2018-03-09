@@ -3,7 +3,7 @@
     <string name="app_name">CurrencyCrunch</string>
     <string name="navigation_drawer_open">"Öffnen Sie die Navigationsleiste "</string>
     <string name="navigation_drawer_close">Schließen Sie die Navigationsleiste</string>
-    <string name="title_activity_welcome">Startbildschirm</string>
+    <string name="title_activity_welcome">CurrencyCrunch</string>
     <string name="next">"Nächster "</string>
     <string name="skip">Überspringen</string>
     <string name="start">"Ich habs! "</string>

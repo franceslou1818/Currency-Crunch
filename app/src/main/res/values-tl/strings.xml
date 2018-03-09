@@ -3,7 +3,7 @@
     <string name="app_name">CurrencyCrunch</string>
     <string name="navigation_drawer_open">"Buksan ang navigation drawer "</string>
     <string name="navigation_drawer_close">"Isara ang drawer ng nabigasyon "</string>
-    <string name="title_activity_welcome">"Home screen "</string>
+    <string name="title_activity_welcome">CurrencyCrunch</string>
     <string name="next">"Susunod "</string>
     <string name="skip">Laktawan</string>
     <string name="start">"Nakuha ko! "</string>
