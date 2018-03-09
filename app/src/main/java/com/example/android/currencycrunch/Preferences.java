@@ -28,7 +28,6 @@ public class Preferences {
 
     private static String[] phrasesList; // common phrases in english
 
-
     public Preferences(Context c) {
         context = c;
         populateDicts();
@@ -195,5 +194,29 @@ public class Preferences {
         String[] sArr = s.split("&&");
         return sArr;
     }
+
+    public static double[] getCoinsFloats(String code) {
+
+        if(code.equals("eur"))
+            return new double[]{0.01,0.02,0.05,0.1,0.2,0.5,1.0,2.0};
+        else if (code.equals("gbp"))
+            return new double[]{0.01,0.02,0.05,0.1,0.2,0.5,1.0,2.0};
+        else if (code.equals("php"))
+            return new double[]{0.01,0.05,0.1,0.25,1.0,5.0,10.0};
+        else if (code.equals("try"))
+            return new double[]{0.01,0.05,0.1,0.25,0.5,1.0};
+        else if(code.equals("usd"))
+            return new double[]{0.01, 0.05, 0.1, 0.25, 0.5, 1.0};
+        else
+            return null;
+
+
+    }
+
+//    public double[] getEurFloats() { return new double[]{0.01,0.02,0.05,0.1,0.2,0.5,1.0,2.0}; }
+//    public double[] getGbpFloats() { return new double[]{0.01,0.02,0.05,0.1,0.2,0.5,1.0,2.0}; }
+//    public double[] getPhpFloats() { return new double[]{0.01,0.05,0.1,0.25,1.0,5.0,10.0}; }
+//    public double[] getTryFloats() { return new double[]{0.01,0.05,0.1,0.25,0.5,1.0}; }
+//    public double[] getUsdFloats() { return new double[]{0.01,0.05,0.1,0.25,0.5,1.0}; }
 
 }

@@ -17,18 +17,25 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ConvertFragment extends Fragment {
 
-    FixerConvert converter;
-    EditText convertedittext;
-    TextView convertabletext;
+    private FixerConvert converter;
+    private EditText convertedittext;
+    private TextView convertabletext;
+    private TextView totalTotext;
+    private TextView totalFromtext;
 
     private CurrencyAdapter currencyAdapter;
     private RecyclerView currencyRecyclerView;
+
+    private double[] coinArr;
+    private double[] coinArrCounter;
 
     public ConvertFragment() {
         // Required empty public constructor
@@ -38,12 +45,14 @@ public class ConvertFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_convert, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
 
         convertedittext = (EditText) getView().findViewById(R.id.convertedittext);
         convertedittext.setHint(Preferences.getChosenFromCurrency()+" - "+Preferences.getChosenToCurrency());
@@ -66,8 +75,12 @@ public class ConvertFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         currencyRecyclerView.setLayoutManager(layoutManager);
         currencyRecyclerView.setHasFixedSize(true);
-        currencyAdapter = new CurrencyAdapter(getActivity());
+//        currencyAdapter = new CurrencyAdapter(getActivity());
+        currencyAdapter = new CurrencyAdapter(getActivity(), ConvertFragment.this);
         currencyRecyclerView.setAdapter(currencyAdapter);
+
+        coinArr = Preferences.getCoinsFloats(Preferences.getChosenToCurrencyCode());
+        coinArrCounter = new double[coinArr.length];
     }
 
     public void converted(){
@@ -76,6 +89,20 @@ public class ConvertFragment extends Fragment {
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
         convertabletext.setText(valueConverted.toString());
     }
+
+    public void setTotalTo(int pos, int counter) {
+        coinArrCounter[pos] = coinArr[pos]*counter;
+        double sum = 0;
+        for (double d : coinArrCounter)
+            sum += d;
+        totalTotext = (TextView) getView().findViewById(R.id.totalToTextView);
+        totalFromtext = (TextView) getView().findViewById(R.id.totalFromTextView);
+//        totalTotext.setText( Double.toString(sum) );String.format( "%.2f", dub )
+        totalTotext.setText( String.format( "%.2f", sum ) );
+        totalTotext.setText( String.format( "%.2f", sum ) );
+
+    }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
     private class Converting extends AsyncTask<Void, Void, Void> {
 

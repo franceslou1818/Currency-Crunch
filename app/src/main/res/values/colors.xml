@@ -5,9 +5,9 @@
     <color name="colorAccent">#03A9F4</color>
 
     <!-- Welcome screens background colour-->
-    <color name="bg_screen">#20d2bb</color>
+    <color name="bg_screen">#82b74b</color>
     <!-- Inactive dot colour -->
-    <color name="dot_dark_screen">#14a895</color>
+    <color name="dot_dark_screen">#405d27</color>
     <!-- Active dot colour -->
-    <color name="dot_light_screen">#8cf9eb</color>
+    <color name="dot_light_screen">#03A9F4</color>
 </resources>

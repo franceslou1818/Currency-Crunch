@@ -2,6 +2,7 @@ package com.example.android.currencycrunch;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
@@ -32,9 +33,14 @@ public class Pop extends Activity {
 
         getWindow().setLayout((int)(width*.8),(int)(height*.6));
 
+//        getWindow().setLayout((int)(width*.8),(int)(height*.6)).setBackgroundDrawable(new BitmapDrawable());
+//        getWindow().setLayout((int)(width*.8),(int)(height*.6)).setOutsideTouchable(true);
+
         Intent in = getIntent();
         String inFrom = in.getStringExtra("from");
         String inTo = in.getStringExtra("to");
+
+
 
         TextView popTextViewFrom = (TextView) findViewById(R.id.textViewPopFrom);
         TextView popTextViewTo = (TextView) findViewById(R.id.textViewPopTo);
