@@ -27,12 +27,6 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
         this.context = c;
     }
 
-//    final private PhrasesAdapterOnClickHandler mClickHandler;
-//
-//    public interface PhrasesAdapterOnClickHandler {
-//        void onClick();
-//    }
-
 
     @Override
     public PhrasesAdapter.PhrasesAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -42,7 +36,6 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
 
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         PhrasesAdapterViewHolder viewHolder = new PhrasesAdapterViewHolder(view);
-//        view.setFocusable(true);
 
         return viewHolder;
     }
@@ -50,8 +43,6 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
     @Override
     public void onBindViewHolder(PhrasesAdapter.PhrasesAdapterViewHolder holder, int position) {
 
-        String phrase = Preferences.getPhrasesList()[position];
-//        System.out.println("********phrases adapter: " + Arrays.toString(Preferences.getPhrasesFromList()));
         holder.textViewFromPhrase.setText(Preferences.getPhrasesFromList()[position]);
         holder.textViewToPhrase.setText(Preferences.getPhrasesToList()[position]);
     }
@@ -77,7 +68,6 @@ public class PhrasesAdapter extends RecyclerView.Adapter<PhrasesAdapter.PhrasesA
 
     @Override
     public void onClick(View v) {
-//        int adapterPosition = getAdapterPosition();
         Intent intent = new Intent(context,Pop.class);
         intent.putExtra("from", textViewFromPhrase.getText().toString());
         intent.putExtra("to", textViewToPhrase.getText().toString());

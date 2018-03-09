@@ -17,6 +17,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -81,6 +82,7 @@ public class PhrasesFragment extends Fragment {//implements PhrasesAdapter.Phras
         phrasesRecyclerView.setHasFixedSize(true);
         phrasesAdapter = new PhrasesAdapter(getActivity());
         phrasesRecyclerView.setAdapter(phrasesAdapter);
+        
 
     }
 

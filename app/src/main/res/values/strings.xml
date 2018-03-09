@@ -5,8 +5,8 @@
     <string name="title_convert">Convert</string>
     <string name="title_recognise">Recognise</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!--<string name="navigation_drawer_open">Open navigation drawer</string>-->
+    <!--<string name="navigation_drawer_close">Close navigation drawer</string>-->
 
     <!-- Welcome Carousel Strings -->
     <string name="title_activity_welcome">CurrencyCrunch</string>
