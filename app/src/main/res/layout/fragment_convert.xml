@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.25"
+        android:gravity="top"
         android:orientation="vertical">
 
         <TextView
@@ -34,26 +35,29 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="wrap_content"
+        android:id="@+id/LinearRecyclerLayout"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="0.5">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
 
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview_coins"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingBottom="8dp" />
+            android:layout_height="wrap_content"
+            android:clipChildren="true"
+            android:clipToPadding="true" />
+        <!--android:paddingBottom="8dp" />-->
+        <!--android:clipToPadding="false"-->
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="0.25">
+        android:layout_height="wrap_content"
+        android:layout_weight="0.10"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/totalTextView"
@@ -62,8 +66,7 @@
             android:text="Total:"
             android:textAlignment="center"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_weight="0.3"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/totalFromTextView"
@@ -72,17 +75,15 @@
             android:text="(Total From)"
             android:textAlignment="center"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_weight="0.3"/>
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="66dp"
             android:layout_height="match_parent"
             android:text="="
             android:textAlignment="center"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_weight="0.1"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/totalToTextView"
@@ -91,8 +92,7 @@
             android:text="(Total To)"
             android:textAlignment="center"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_weight="0.3"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 

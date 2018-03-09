@@ -9,11 +9,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -75,8 +77,16 @@ public class ConvertFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         currencyRecyclerView.setLayoutManager(layoutManager);
         currencyRecyclerView.setHasFixedSize(true);
-//        currencyAdapter = new CurrencyAdapter(getActivity());
+
+
+        int width, height;
+        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
+        width = metrics.widthPixels;
+        height = (int)(metrics.heightPixels*0.5);
+        currencyRecyclerView.setLayoutParams(new LinearLayout.LayoutParams(width, height));
+
         currencyAdapter = new CurrencyAdapter(getActivity(), ConvertFragment.this);
+
         currencyRecyclerView.setAdapter(currencyAdapter);
 
         coinArr = Preferences.getCoinsFloats(Preferences.getChosenToCurrencyCode());

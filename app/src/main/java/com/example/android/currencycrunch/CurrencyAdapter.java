@@ -41,6 +41,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         boolean shouldAttachToParentImmediately = false;
 
+
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         CurrencyAdapterViewHolder viewHolder = new CurrencyAdapterViewHolder(view);
         return viewHolder;
@@ -58,7 +59,10 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
 
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(), imageId);
 
-        holder.coinPhrase.setText(GoogleTranslate.translate((Preferences.getCoinsList()[position]),"en",Preferences.getChosenToLanguageCode()));
+        String[] coinNames = Preferences.getCoinsList();
+
+//        holder.coinPhrase.setText(GoogleTranslate.translate((Preferences.getCoinsList()[position]),"en",Preferences.getChosenToLanguageCode()));
+        holder.coinPhrase.setText(coinNames[position]);
         holder.coinImage.setImageBitmap(icon);
 
         ImageButton plusBtn = (ImageButton) holder.itemView.findViewById(R.id.plusIcon);
@@ -115,6 +119,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
             coinPhrase = (TextView) itemView.findViewById(R.id.coinPhrase);
             coinSum = (TextView) itemView.findViewById(R.id.coinSum);
             coinImage = (ImageView) itemView.findViewById(R.id.coinImage);
+
 
         }
 
