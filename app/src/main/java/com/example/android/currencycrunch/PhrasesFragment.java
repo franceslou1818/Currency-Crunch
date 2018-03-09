@@ -53,7 +53,6 @@ public class PhrasesFragment extends Fragment {//implements PhrasesAdapter.Phras
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_phrases, container, false);
-
     }
 
     @Override
@@ -82,8 +81,6 @@ public class PhrasesFragment extends Fragment {//implements PhrasesAdapter.Phras
         phrasesRecyclerView.setHasFixedSize(true);
         phrasesAdapter = new PhrasesAdapter(getActivity());
         phrasesRecyclerView.setAdapter(phrasesAdapter);
-        
-
     }
 
     public void translated(){ // translate button

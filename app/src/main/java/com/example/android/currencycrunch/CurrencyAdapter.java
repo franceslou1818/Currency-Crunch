@@ -21,11 +21,18 @@ import android.widget.Toast;
 
 public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.CurrencyAdapterViewHolder>{
 
+    private ConvertFragment cf = new ConvertFragment();
 
     private Context context;
 
-    public CurrencyAdapter(Context c) {
+//    public CurrencyAdapter(Context c) {
+//        this.context = c;
+//    }
+//customAdapter = new CustomAdapter(myContext, android.R.layout.simple_list_item_1, getList, HomeFragment.this);
+
+    public CurrencyAdapter(Context c, ConvertFragment f) {
         this.context = c;
+        this.cf = f;
     }
 
     @Override
@@ -64,8 +71,12 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
             public void onClick(View view) {
                 TextView coinSum = (TextView) holder.itemView.findViewById(R.id.coinSum);
                 int currentText = Integer.parseInt(coinSum.getText().toString());
-                coinSum.setText(Integer.toString(currentText+1));
-//                Toast.makeText(context, "plus clicked!" + holder.coinPhrase.getText().toString(), Toast.LENGTH_SHORT).show();
+                int newC = currentText+1;
+                coinSum.setText(Integer.toString(newC));
+
+//                System.out.println("**********plus" + holder.getAdapterPosition());
+                cf.setTotalTo(holder.getAdapterPosition(), newC);
+
             }
         });
 
@@ -73,10 +84,16 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         minusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 TextView coinSum = (TextView) holder.itemView.findViewById(R.id.coinSum);
                 int currentText = Integer.parseInt(coinSum.getText().toString());
-                coinSum.setText(Integer.toString(currentText-1));
-//                Toast.makeText(context, "plus clicked!" + holder.coinPhrase.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                if (currentText != 0) {
+                    int newC = currentText-1;
+                    coinSum.setText(Integer.toString(newC));
+                    cf.setTotalTo(holder.getAdapterPosition(), newC);
+                }
+
             }
         });
 
@@ -86,6 +103,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
     public int getItemCount() {
         return Preferences.getCoinsList().length;
     }
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,4 +124,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         }
 
     }
+
+
+
 }
