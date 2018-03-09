@@ -5,6 +5,20 @@
     <string name="title_convert">Convert</string>
     <string name="title_recognise">Recognise</string>
 
+    <string name="placeholder" translatable="false">...</string>
+
+    <!-- Translatable -->
+    <string name="convert">Convert Currencies:</string>
+    <string name="translate">Translate</string>
+    <string name="total">Total:</string>
+    <string name="preferences">Choose Your Preferences:</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="country">Country</string>
+    <string name="language">Language</string>
+    <string name="currency">Currency</string>
+    <string name="savepreferences">Save Preferences</string>
+
     <!--<string name="navigation_drawer_open">Open navigation drawer</string>-->
     <!--<string name="navigation_drawer_close">Close navigation drawer</string>-->
 
@@ -15,7 +29,7 @@
     <string name="start">GOT IT!</string>
 
     <string name="slide_1_title">Welcome to CurrencyCrunch!</string>
-    <string name="slide_1_desc"></string>
+    <string name="slide_1_desc" translatable="false"></string>
     <string name="slide_2_title">Learn</string>
     <string name="slide_2_desc">Learn to recognise foreign currencies!</string>
     <string name="slide_3_title">Count</string>
@@ -26,7 +40,7 @@
     <string name="slide_5_desc">Take a photo and find out what currency your cash is!</string>
 
     <string name="startup">Startup Pages</string>
-    <string name="apiKey">"AIzaSyDymF-_GTUelaiSJYO1ET6PZZrDbX9QqP8"</string>
+    <string name="apiKey" translatable="false">"AIzaSyDymF-_GTUelaiSJYO1ET6PZZrDbX9QqP8"</string>
 
     <!--country:language:currency-->
     <string-array name="countryLangCurr">
