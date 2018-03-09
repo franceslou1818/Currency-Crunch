@@ -74,11 +74,11 @@
     </string-array>
 
     <string-array name="signs">
-        <item>€</item>
-        <item>£</item>
-        <item>$</item>
-        <item>₱</item>
-        <item>₺</item>
+        <item>eur:€</item>
+        <item>gbp:£</item>
+        <item>usd:$</item>
+        <item>php:₱</item>
+        <item>try:₺</item>
 
     </string-array>
 
@@ -132,7 +132,7 @@
         <item>One cent</item>
         <item>Five cents</item>
         <item>Ten cents</item>
-        <item>Twenty-five cents</item>
+        <item>Twenty five cents</item>
         <item>One peso</item>
         <item>Five pesos</item>
         <item>Ten pesos</item>

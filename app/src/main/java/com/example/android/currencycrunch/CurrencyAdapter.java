@@ -65,6 +65,11 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         holder.coinPhrase.setText(coinNames[position]);
         holder.coinImage.setImageBitmap(icon);
 
+        String currSigns = Preferences.getChosenCurrSigns();
+        String[] splitSigns = currSigns.split("&&");
+        String fromSign = splitSigns[0];
+        String toSign = splitSigns[1];
+
         ImageButton plusBtn = (ImageButton) holder.itemView.findViewById(R.id.plusIcon);
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
