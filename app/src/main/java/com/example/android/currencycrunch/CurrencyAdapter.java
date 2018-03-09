@@ -65,6 +65,8 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         holder.coinPhrase.setText(coinNames[position]);
         holder.coinImage.setImageBitmap(icon);
 
+
+
         ImageButton plusBtn = (ImageButton) holder.itemView.findViewById(R.id.plusIcon);
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +121,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
             coinPhrase = (TextView) itemView.findViewById(R.id.coinPhrase);
             coinSum = (TextView) itemView.findViewById(R.id.coinSum);
             coinImage = (ImageView) itemView.findViewById(R.id.coinImage);
+
 
 
         }

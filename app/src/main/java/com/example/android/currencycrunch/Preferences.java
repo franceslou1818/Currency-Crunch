@@ -49,6 +49,7 @@ public class Preferences {
                 !prefMap.containsKey("chosenToLanguage") &&
                 !prefMap.containsKey("chosenFromCurrency") &&
                 !prefMap.containsKey("chosenToCurrency") &&
+                !prefMap.containsKey("currencySigns") &&
                 !prefMap.containsKey("coinsNames") &&
                 !prefMap.containsKey("phrasesFrom") &&
                 !prefMap.containsKey("phrasesTo") ) {
@@ -69,6 +70,7 @@ public class Preferences {
         prefUserEditor.putString("chosenToLanguage","Tagalog(tl)");
         prefUserEditor.putString("chosenFromCurrency","Pound Sterling(gbp)");
         prefUserEditor.putString("chosenToCurrency","Philippine Peso(php)");
+        prefUserEditor.putString("currencySigns", getCurrSigns("gbp","php"));
         prefUserEditor.putString("coinNames", getCoinsForCurr("tl","php"));
         prefUserEditor.putString("phrasesFrom", getPhrasesInLang("en"));
         prefUserEditor.putString("phrasesTo", getPhrasesInLang("tl"));
@@ -85,6 +87,7 @@ public class Preferences {
         prefUserEditor.putString("chosenToLanguage",toLang);
         prefUserEditor.putString("chosenFromCurrency",fromCurr);
         prefUserEditor.putString("chosenToCurrency",toCurr);
+        prefUserEditor.putString("currencySigns", getCurrSigns(getChosenFromCurrencyCode(),getChosenToCurrencyCode()));
         prefUserEditor.putString("coinNames",getCoinsForCurr(languagesCodes.get(toLang),currenciesCodes.get(toCurr)));
         prefUserEditor.putString("phrasesFrom", getPhrasesInLang(languagesCodes.get(fromLang)));
         prefUserEditor.putString("phrasesTo", getPhrasesInLang(languagesCodes.get(toLang)));
@@ -120,6 +123,23 @@ public class Preferences {
                 sb.append("&&");
             }
         }
+        return sb.toString();
+    }
+
+    public static String getCurrSigns(String fromCode, String toCode){
+        String[] signs = context.getResources().getStringArray(R.array.signs);
+        StringBuilder fromStr = new StringBuilder();
+        StringBuilder toStr = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+        for (String s : signs){
+            if (s.contains(fromCode)){
+                fromStr.append(s.substring(4));
+            }
+            if (s.contains(toCode)) {
+                toStr.append(s.substring(4));
+            }
+        }
+        sb.append(fromStr + "&&" + toStr);
         return sb.toString();
     }
 
@@ -163,6 +183,10 @@ public class Preferences {
     public static String getChosenFromCurrency() { return prefUser.getString("chosenFromCurrency","N/A"); }
 
     public static String getChosenToCurrency() { return prefUser.getString("chosenToCurrency","N/A"); }
+
+    public static String getChosenCurrSigns() { return prefUser.getString("currencySigns", "N/A"); }
+
+    public static String getChosenCoinNames() { return prefUser.getString("coinNames", "N/A"); }
 
     public static String getChosenFromLanguageCode() { return languagesCodes.get(getChosenFromLanguage()); }
 
