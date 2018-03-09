@@ -19,4 +19,6 @@
     <dimen name="small_coin">70dp</dimen>
     <dimen name="calculate">30dp</dimen>
 
+    <dimen name="recycler_height">250dp</dimen>
+
 </resources>

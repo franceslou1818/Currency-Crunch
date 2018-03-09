@@ -34,6 +34,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         boolean shouldAttachToParentImmediately = false;
 
+
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         CurrencyAdapterViewHolder viewHolder = new CurrencyAdapterViewHolder(view);
         return viewHolder;
@@ -97,6 +98,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
             coinPhrase = (TextView) itemView.findViewById(R.id.coinPhrase);
             coinSum = (TextView) itemView.findViewById(R.id.coinSum);
             coinImage = (ImageView) itemView.findViewById(R.id.coinImage);
+
 
         }
 
