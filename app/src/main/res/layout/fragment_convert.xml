@@ -15,7 +15,7 @@
             android:id="@+id/convertabletext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hi, Convert Me!"
+            android:text="@string/convert"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -30,7 +30,7 @@
             android:id="@+id/convertbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Translate" />
+            android:text="@string/translate" />
 
     </LinearLayout>
 
@@ -63,7 +63,7 @@
             android:id="@+id/totalTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Total:"
+            android:text="@string/total"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -72,7 +72,7 @@
             android:id="@+id/totalFromTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="(Total From)"
+            android:text="@string/placeholder"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -89,7 +89,7 @@
             android:id="@+id/totalToTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="(Total To)"
+            android:text="@string/placeholder"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold" />

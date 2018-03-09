@@ -21,7 +21,7 @@
             android:id="@+id/textViewHomeTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Choose Your Preferences"
+            android:text="@string/preferences"
             android:textAlignment="center"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -48,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.35"
-            android:text="From"
+            android:text="@string/from"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -58,7 +58,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.35"
-            android:text="To"
+            android:text="@string/to"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -80,7 +80,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
-            android:text="Country"
+            android:text="@string/country"
             android:textAlignment="viewStart"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -115,7 +115,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
-            android:text="Language"
+            android:text="@string/language"
             android:textAlignment="viewStart"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -150,7 +150,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
-            android:text="Currency"
+            android:text="@string/currency"
             android:textAlignment="viewStart"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -184,7 +184,7 @@
             android:id="@+id/buttonChangePref"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Save Preferences" />
+            android:text="@string/savepreferences" />
     </LinearLayout>
 
 
