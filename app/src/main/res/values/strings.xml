@@ -8,8 +8,8 @@
     <string name="placeholder" translatable="false">0</string>
 
     <!-- Translatable -->
-    <string name="convert">Convert Currencies:</string>
-    <string name="translate">Translate Phrase:</string>
+    <string name="convert">Convert Currency</string>
+    <string name="translate">Translate Phrase</string>
     <string name="total">Total:</string>
     <string name="preferences">Choose Your Preferences:</string>
     <string name="from">From</string>
