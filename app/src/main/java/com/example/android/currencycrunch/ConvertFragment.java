@@ -101,8 +101,14 @@ public class ConvertFragment extends Fragment {
         String valueToConvert = convertedittext.getText().toString(); //get the value of text
         Double valueConverted = converter.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
-//        convertabletext.setText(valueConverted.toString());
-        convertabletext.setText(String.format( "%.2f", valueConverted ).replace(',','.'));
+
+
+        String signs = Preferences.getChosenCurrSigns();
+        String[] split = signs.split("&&");
+
+        String toString = split[1];
+
+        convertabletext.setText(String.format( "%s%.2f", toString, valueConverted ).replace(',','.'));
     }
 
     public void setTotalTo(int pos, int counter) {
