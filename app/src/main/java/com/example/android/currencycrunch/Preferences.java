@@ -133,10 +133,10 @@ public class Preferences {
         StringBuilder sb = new StringBuilder();
         for (String s : signs){
             if (s.contains(fromCode)){
-                fromStr.append(s.substring(3));
+                fromStr.append(s.substring(4));
             }
             if (s.contains(toCode)) {
-                toStr.append(s.substring(3));
+                toStr.append(s.substring(4));
             }
         }
         sb.append(fromStr + "&&" + toStr);

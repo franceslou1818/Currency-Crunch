@@ -31,6 +31,7 @@ public class ConvertFragment extends Fragment {
     private EditText convertedittext;
     private TextView convertabletext;
     private TextView totalTotext;
+    private TextView totalSign;
 
     private CurrencyAdapter currencyAdapter;
     private RecyclerView currencyRecyclerView;
@@ -90,6 +91,8 @@ public class ConvertFragment extends Fragment {
 
         coinArr = Preferences.getCoinsFloats(Preferences.getChosenToCurrencyCode());
         coinArrCounter = new double[coinArr.length];
+
+
     }
 
     public void converted(){
@@ -114,6 +117,16 @@ public class ConvertFragment extends Fragment {
         System.out.println("*********get class2: "+String.format( "%.2f", sum ).getClass());
 
         convertedittext.setText(String.format( "%.2f", sum ).replace(',','.'));
+
+        String currSigns = Preferences.getChosenCurrSigns();
+        String[] splitSigns = currSigns.split("&&");
+        String fromSign = splitSigns[0];
+        String toSign = splitSigns[1];
+        System.out.println(splitSigns);
+        System.out.println("From:" + fromSign);
+        System.out.println("To:" + toSign);
+        totalSign = (TextView) getView().findViewById(R.id.totalSign);
+        totalSign.setText(toSign.toString());
 
     }
 
