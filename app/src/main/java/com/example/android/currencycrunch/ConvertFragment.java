@@ -31,6 +31,8 @@ public class ConvertFragment extends Fragment {
     private EditText convertedittext;
     private TextView convertabletext;
     private TextView totalTotext;
+    private TextView fromToText;
+    private TextView fromSignText;
     private TextView totalSign;
 
     private CurrencyAdapter currencyAdapter;
@@ -112,21 +114,37 @@ public class ConvertFragment extends Fragment {
         totalTotext = (TextView) getView().findViewById(R.id.totalToTextView);
         totalTotext.setText( String.format( "%.2f", sum ).replace(',','.') );
 
-        // need double
-        System.out.println("*********get class1: "+String.format( "%.2f", sum ).getClass()); //string
-        System.out.println("*********get class2: "+String.format( "%.2f", sum ).getClass());
+        
 
-        convertedittext.setText(String.format( "%.2f", sum ).replace(',','.'));
-
-        String currSigns = Preferences.getChosenCurrSigns();
-        String[] splitSigns = currSigns.split("&&");
-        String fromSign = splitSigns[0];
-        String toSign = splitSigns[1];
-        System.out.println(splitSigns);
-        System.out.println("From:" + fromSign);
-        System.out.println("To:" + toSign);
-        totalSign = (TextView) getView().findViewById(R.id.totalSign);
-        totalSign.setText(toSign.toString());
+//        Double valueṬoConvert = sum;
+//        System.out.println("@@@@@@@1"+sum.getClass());
+//        System.out.println("@@@@@@@1"+sum.getClass());
+//        System.out.println(sum.toString().getClass());
+//        Double valueCoṇverted = converter.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(),sum);
+//        System.out.println("******* " + valueCoṇverted);
+//
+//
+//        fromToText = (TextView) getView().findViewById(R.id.fromValue);
+//        fromToText.setText( String.format( "%.2f", valueConverted));
+//
+//         need double
+//        System.out.println("*********get class1: "+String.format( "%.2f", sum ).getClass()); //string
+//        System.out.println("*********get class2: "+String.format( "%.2f", sum ).getClass());
+//
+//
+//        String currSigns = Preferences.getChosenCurrSigns();
+//        String[] splitSigns = currSigns.split("&&");
+//        String fromSign = splitSigns[0];
+//        String toSign = splitSigns[1];
+//        System.out.println(splitSigns);
+//        System.out.println("From:" + fromSign);
+//        System.out.println("To:" + toSign);
+//        totalSign = (TextView) getView().findViewById(R.id.totalSign);
+//        totalSign.setText(toSign.toString());
+//        fromSignText = (TextView) getView().findViewById(R.id.fromSign);
+//        fromSignText.setText(fromSign.toString());
+//
+//        convertedittext.setText(String.format( "%.2f", sum ).replace(',','.'));
 
     }
 
