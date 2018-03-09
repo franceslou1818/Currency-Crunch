@@ -32,7 +32,7 @@ public class FixerConvert {
     }
 
 
-    public Double convert(String fromCurr, String toCurr, double fromCurrAmount) {
+    public double convert(String fromCurr, String toCurr, double fromCurrAmount) {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -82,7 +82,7 @@ public class FixerConvert {
         }
 
 
-        return null;
+        return 0.0;
     }
 
 

@@ -101,16 +101,19 @@ public class ConvertFragment extends Fragment {
     }
 
     public void setTotalTo(int pos, int counter) {
+
+        FixerConvert fc = new FixerConvert();
         coinArrCounter[pos] = coinArr[pos]*counter;
         double sum = 0;
         for (double d : coinArrCounter)
             sum += d;
         totalTotext = (TextView) getView().findViewById(R.id.totalToTextView);
         totalFromtext = (TextView) getView().findViewById(R.id.totalFromTextView);
-//        totalTotext.setText( Double.toString(sum) );String.format( "%.2f", dub )
-        totalTotext.setText( String.format( "%.2f", sum ) );
         totalTotext.setText( String.format( "%.2f", sum ) );
 
+        double valueConverted = fc.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(), sum);
+
+        totalFromtext.setText( String.format( "%.2f", valueConverted ) );
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
