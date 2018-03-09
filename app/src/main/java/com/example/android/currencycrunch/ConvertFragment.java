@@ -107,6 +107,8 @@ public class ConvertFragment extends Fragment {
 
     public void setTotalTo(int pos, int counter) {
 
+        converter = new FixerConvert();
+
         coinArrCounter[pos] = coinArr[pos]*counter;
         Double sum = 0.0;
         for (double d : coinArrCounter)
@@ -114,37 +116,32 @@ public class ConvertFragment extends Fragment {
         totalTotext = (TextView) getView().findViewById(R.id.totalToTextView);
         totalTotext.setText( String.format( "%.2f", sum ).replace(',','.') );
 
-        
+        String s = sum.toString();
+        System.out.println("********1 " + s);//parseDouble(String s)
+        double d = (double)Double.valueOf(s);
 
-//        Double valueṬoConvert = sum;
-//        System.out.println("@@@@@@@1"+sum.getClass());
-//        System.out.println("@@@@@@@1"+sum.getClass());
-//        System.out.println(sum.toString().getClass());
-//        Double valueCoṇverted = converter.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(),sum);
-//        System.out.println("******* " + valueCoṇverted);
-//
-//
-//        fromToText = (TextView) getView().findViewById(R.id.fromValue);
-//        fromToText.setText( String.format( "%.2f", valueConverted));
-//
-//         need double
-//        System.out.println("*********get class1: "+String.format( "%.2f", sum ).getClass()); //string
-//        System.out.println("*********get class2: "+String.format( "%.2f", sum ).getClass());
-//
-//
-//        String currSigns = Preferences.getChosenCurrSigns();
-//        String[] splitSigns = currSigns.split("&&");
-//        String fromSign = splitSigns[0];
-//        String toSign = splitSigns[1];
-//        System.out.println(splitSigns);
-//        System.out.println("From:" + fromSign);
-//        System.out.println("To:" + toSign);
-//        totalSign = (TextView) getView().findViewById(R.id.totalSign);
-//        totalSign.setText(toSign.toString());
-//        fromSignText = (TextView) getView().findViewById(R.id.fromSign);
-//        fromSignText.setText(fromSign.toString());
-//
-//        convertedittext.setText(String.format( "%.2f", sum ).replace(',','.'));
+
+        double valueCoṇverted = converter.convert(Preferences.getChosenFromCurrencyCode(),
+                                                    Preferences.getChosenToCurrencyCode(),
+                                                        d);
+
+        System.out.println("********2 " + valueCoṇverted);
+
+        fromToText = (TextView) getView().findViewById(R.id.fromValue);
+        fromToText.setText( String.format( "%.2f", valueCoṇverted ).replace(',','.') );
+
+
+        String signs = Preferences.getChosenCurrSigns();
+        String[] split = signs.split("&&");
+
+        String fromString = split[0];
+        String toString = split[1];
+
+        fromSignText = (TextView) getView().findViewById(R.id.fromSign);
+        fromSignText.setText(fromString);
+
+        totalSign = (TextView) getView().findViewById(R.id.totalSign);
+        totalSign.setText(toString);
 
     }
 
