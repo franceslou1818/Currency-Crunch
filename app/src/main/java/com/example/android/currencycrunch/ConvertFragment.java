@@ -74,7 +74,7 @@ public class ConvertFragment extends Fragment {
         width = metrics.widthPixels;
         height = (int)(metrics.heightPixels*0.5);
         currencyRecyclerView.setLayoutParams(new LinearLayout.LayoutParams(width, height));
-
+//        currencyRecyclerView.requestLayout();
         currencyAdapter = new CurrencyAdapter(getActivity());
         currencyRecyclerView.setAdapter(currencyAdapter);
     }

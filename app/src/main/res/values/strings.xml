@@ -74,53 +74,53 @@
     <!-- Coin names in english -->
 
     <string-array name = "eur">
-        <item>one cent</item>
-        <item>two cents</item>
-        <item>five cents</item>
-        <item>ten cents</item>
-        <item>twenty cents</item>
-        <item>fifty cents</item>
-        <item>one euro</item>
-        <item>two euros</item>
+        <item>One cent</item>
+        <item>Two cents</item>
+        <item>Five cents</item>
+        <item>Ten cents</item>
+        <item>Twenty cents</item>
+        <item>Fifty cents</item>
+        <item>One euro</item>
+        <item>Two euros</item>
     </string-array>
 
     <string-array name = "gbp">
-        <item>one penny</item>
-        <item>two pence</item>
-        <item>five pence</item>
-        <item>ten pence</item>
-        <item>twenty pence</item>
-        <item>fifty pence</item>
-        <item>one pound</item>
-        <item>two pounds</item>
+        <item>One penny</item>
+        <item>Two pence</item>
+        <item>Five pence</item>
+        <item>Ten pence</item>
+        <item>Twenty pence</item>
+        <item>Fifty pence</item>
+        <item>One pound</item>
+        <item>Two pounds</item>
     </string-array>
 
     <string-array name = "usd">
-        <item>one penny</item>
-        <item>one nickel</item>
-        <item>one dime</item>
-        <item>one quarter</item>
-        <item>fifty cents</item>
-        <item>one dollar</item>
+        <item>One penny</item>
+        <item>One nickel</item>
+        <item>One dime</item>
+        <item>One quarter</item>
+        <item>Fifty cents</item>
+        <item>One dollar</item>
     </string-array>
 
     <string-array name = "php">
-        <item>one cent</item>
-        <item>five cents</item>
-        <item>ten cents</item>
-        <item>twenty-five cents</item>
-        <item>one peso</item>
-        <item>five pesos</item>
-        <item>ten pesos</item>
+        <item>One cent</item>
+        <item>Five cents</item>
+        <item>Ten cents</item>
+        <item>Twenty-five cents</item>
+        <item>One peso</item>
+        <item>Five pesos</item>
+        <item>Ten pesos</item>
     </string-array>
 
     <string-array name = "trl">
-        <item>one kurus</item>
-        <item>five kurus</item>
-        <item>ten kurus</item>
-        <item>twenty-five kurus</item>
-        <item>fifty kurus</item>
-        <item>one lira</item>
+        <item>One kurus</item>
+        <item>Five kurus</item>
+        <item>Ten kurus</item>
+        <item>Twenty-five kurus</item>
+        <item>Fifty kurus</item>
+        <item>One lira</item>
     </string-array>
 
 

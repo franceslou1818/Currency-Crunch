@@ -52,7 +52,10 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
 
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(), imageId);
 
-        holder.coinPhrase.setText(GoogleTranslate.translate((Preferences.getCoinsList()[position]),"en",Preferences.getChosenToLanguageCode()));
+        String[] coinNames = Preferences.getCoinsList();
+
+//        holder.coinPhrase.setText(GoogleTranslate.translate((Preferences.getCoinsList()[position]),"en",Preferences.getChosenToLanguageCode()));
+        holder.coinPhrase.setText(coinNames[position]);
         holder.coinImage.setImageBitmap(icon);
 
         ImageButton plusBtn = (ImageButton) holder.itemView.findViewById(R.id.plusIcon);
