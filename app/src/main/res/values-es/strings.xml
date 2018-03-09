@@ -17,4 +17,18 @@
     <string name="slide_5_title">Reconocer</string>
     <string name="slide_5_desc">"¡Toma una foto y descubre qué moneda es tu efectivo! "</string>
     <string name="startup">"Páginas de inicio "</string>
+    <string name="convert">convertir</string>
+    <string name="translate">traducir</string>
+    <string name="total">total</string>
+    <string name="preferences">preferencias</string>
+    <string name="from">de</string>
+    <string name="to">a</string>
+    <string name="country">país</string>
+    <string name="language">idioma</string>
+    <string name="currency">moneda</string>
+    <string name="savepreferences">guardar preferencias</string>
+    <string name="title_home">guardar</string>
+    <string name="title_phrases">frases</string>
+    <string name="title_convert">convertir</string>
+    <string name="title_recognise">reconocer</string>
 </resources>
