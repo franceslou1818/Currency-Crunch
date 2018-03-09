@@ -31,7 +31,6 @@ public class ConvertFragment extends Fragment {
     private EditText convertedittext;
     private TextView convertabletext;
     private TextView totalTotext;
-    private TextView totalFromtext;
 
     private CurrencyAdapter currencyAdapter;
     private RecyclerView currencyRecyclerView;
@@ -97,23 +96,25 @@ public class ConvertFragment extends Fragment {
         String valueToConvert = convertedittext.getText().toString(); //get the value of text
         Double valueConverted = converter.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(), Double.parseDouble(valueToConvert));
         convertabletext = (TextView) getView().findViewById(R.id.convertabletext);
-        convertabletext.setText(valueConverted.toString());
+//        convertabletext.setText(valueConverted.toString());
+        convertabletext.setText(String.format( "%.2f", valueConverted ).replace(',','.'));
     }
 
     public void setTotalTo(int pos, int counter) {
 
-        FixerConvert fc = new FixerConvert();
         coinArrCounter[pos] = coinArr[pos]*counter;
-        double sum = 0;
+        Double sum = 0.0;
         for (double d : coinArrCounter)
             sum += d;
         totalTotext = (TextView) getView().findViewById(R.id.totalToTextView);
-        totalFromtext = (TextView) getView().findViewById(R.id.totalFromTextView);
-        totalTotext.setText( String.format( "%.2f", sum ) );
+        totalTotext.setText( String.format( "%.2f", sum ).replace(',','.') );
 
-        double valueConverted = fc.convert(Preferences.getChosenFromCurrencyCode(), Preferences.getChosenToCurrencyCode(), sum);
+        // need double
+        System.out.println("*********get class1: "+String.format( "%.2f", sum ).getClass()); //string
+        System.out.println("*********get class2: "+String.format( "%.2f", sum ).getClass());
 
-        totalFromtext.setText( String.format( "%.2f", valueConverted ) );
+        convertedittext.setText(String.format( "%.2f", sum ).replace(',','.'));
+
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

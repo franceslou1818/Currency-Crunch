@@ -3,7 +3,7 @@
     <string name="app_name">CurrencyCrunch</string>
     <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
     <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
-    <string name="title_activity_welcome">Écran d\'accueil</string>
+    <string name="title_activity_welcome">CurrencyCrunch</string>
     <string name="next">Prochain</string>
     <string name="skip">Sauter</string>
     <string name="start">Je l\'ai!</string>

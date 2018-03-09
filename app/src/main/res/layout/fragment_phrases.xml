@@ -14,7 +14,7 @@
             android:id="@+id/translatabletext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hi, Translate Me!"
+            android:text="Translate Phrase:"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textStyle="bold" />

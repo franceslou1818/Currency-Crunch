@@ -3,7 +3,7 @@
     <string name="app_name">CurrencyCrunch</string>
     <string name="navigation_drawer_open">"Gezinme çekmecesini aç "</string>
     <string name="navigation_drawer_close">"Gezinme çekmecesini kapat "</string>
-    <string name="title_activity_welcome">"Ana ekran "</string>
+    <string name="title_activity_welcome">CurrencyCrunch</string>
     <string name="next">Sonraki</string>
     <string name="skip">Atlamak</string>
     <string name="start">"Anladım! "</string>
