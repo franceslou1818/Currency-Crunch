@@ -60,7 +60,7 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.Curren
         Bitmap icon = BitmapFactory.decodeResource(context.getResources(), imageId);
 
         String[] coinNames = Preferences.getCoinsList();
-        
+
         holder.coinPhrase.setText(coinNames[position]);
         holder.coinImage.setImageBitmap(icon);
 
