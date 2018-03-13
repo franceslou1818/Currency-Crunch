@@ -62,6 +62,8 @@ public class HomeFragment extends Fragment {
     String chosenToLang;
     String chosenFromCurr;
     String chosenToCurr;
+    String fromSign;
+    String toSign;
     
     Button changePrefBtn;
 
@@ -188,7 +190,11 @@ public class HomeFragment extends Fragment {
     }
 
     public void saved(){
-        Preferences.saveSharedUserPref(chosenFromCountry,chosenToCountry,chosenFromLang,chosenToLang,chosenFromCurr,chosenToCurr);
+        String fromCode = Preferences.getCodeOfCurr(chosenFromCurr);
+        String toCode = Preferences.getCodeOfCurr(chosenToCurr);
+        String signs = Preferences.getCurrSigns(fromCode,toCode);
+        String[] split = signs.split("&&");
+        Preferences.saveSharedUserPref(chosenFromCountry,chosenToCountry,chosenFromLang,chosenToLang,chosenFromCurr,chosenToCurr,split[0],split[1]);
     }
 
 

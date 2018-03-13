@@ -80,14 +80,16 @@ public class Preferences {
     // called when user clicks button to save preference in home fragment
     public static void saveSharedUserPref(String fromCountry,String toCountry,
                                             String fromLang,String toLang,
-                                            String fromCurr,String toCurr) {
+                                            String fromCurr,String toCurr,
+                                            String fromSign,String toSign) {
         prefUserEditor.putString("chosenFromCountry",fromCountry);
         prefUserEditor.putString("chosenToCountry", toCountry);
         prefUserEditor.putString("chosenFromLanguage", fromLang);
         prefUserEditor.putString("chosenToLanguage",toLang);
         prefUserEditor.putString("chosenFromCurrency",fromCurr);
         prefUserEditor.putString("chosenToCurrency",toCurr);
-        prefUserEditor.putString("currencySigns", getCurrSigns(getChosenFromCurrencyCode(),getChosenToCurrencyCode()));
+//        prefUserEditor.putString("currencySigns", getCurrSigns(getChosenFromCurrencyCode(),getChosenToCurrencyCode()));
+        prefUserEditor.putString("currencySigns", getCurrSigns(fromSign,toSign));
         prefUserEditor.putString("coinNames",getCoinsForCurr(languagesCodes.get(toLang),currenciesCodes.get(toCurr)));
         prefUserEditor.putString("phrasesFrom", getPhrasesInLang(languagesCodes.get(fromLang)));
         prefUserEditor.putString("phrasesTo", getPhrasesInLang(languagesCodes.get(toLang)));
@@ -195,6 +197,11 @@ public class Preferences {
     public static String getChosenFromCurrencyCode() {return currenciesCodes.get(getChosenFromCurrency());}
 
     public static String getChosenToCurrencyCode() {return currenciesCodes.get(getChosenToCurrency());}
+
+    public static String getCodeOfCurr(String s) {
+
+        return currenciesCodes.get(s);
+    }
 
 
 /////////// getters of common phrases
