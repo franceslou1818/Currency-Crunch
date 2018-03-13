@@ -127,8 +127,8 @@ public class ConvertFragment extends Fragment {
         double d = (double)Double.valueOf(s);
 
 
-        double valueCoṇverted = converter.convert(Preferences.getChosenFromCurrencyCode(),
-                                                    Preferences.getChosenToCurrencyCode(),
+        double valueCoṇverted = converter.convert(Preferences.getChosenToCurrencyCode(),
+                                                    Preferences.getChosenFromCurrencyCode(),
                                                         d);
 
         System.out.println("********2 " + valueCoṇverted);
